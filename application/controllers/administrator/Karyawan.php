@@ -82,11 +82,13 @@ class Karyawan extends CI_Controller
 		}
 	}
 
+	//edit
 	public function edit($id)
 	{
 		$where = array('id_karyawan' => $id);
 		$data = array(
 			'title' => 'KSPPS BMT Sehati',
+			//'karyawan' => $this->db->query("select*from tb_karyawan, tb_jabatan $where tb_karyawan.id_jabatan = tb_jabatan.id_jabatan and tb_karyawan.id_karyawan = '$id'")->result(),
 			'karyawan' => $this->M_karyawan->edit_data($where, 'tb_karyawan')->result(),
 			'jabatan' => $this->M_jabatan->tampil()
 		);
@@ -94,6 +96,10 @@ class Karyawan extends CI_Controller
 		$this->load->view('templates_administrator/sidebar');
 		$this->load->view('administrator/karyawan_edit', $data);
 		$this->load->view('templates_administrator/footer');
+	}
+	//edit aksi(update)
+	public function update()
+	{
 	}
 
 	// Hapus

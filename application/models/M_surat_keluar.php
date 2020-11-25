@@ -22,4 +22,10 @@ class M_surat_keluar extends CI_Model
 
         return $query;
     }
+
+    //ambil data
+    public function count_data($where = '')
+    {
+        return $this->db->query("select*from tb_surat_keluar $where");
+    }
 }

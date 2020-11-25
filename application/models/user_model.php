@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class User_model extends CI_Model{
+class User_model extends CI_Model
+{
 
 	public $table = 'user';
 	public $id = 'id';
@@ -15,6 +16,10 @@ class User_model extends CI_Model{
 	{
 		return $this->db->get($table);
 	}
-}
 
- ?>
+	//
+	public function count_data($where = '')
+	{
+		return $this->db->query("select*from tb_user $where");
+	}
+}

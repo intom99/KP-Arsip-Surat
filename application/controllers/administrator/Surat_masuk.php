@@ -153,8 +153,15 @@ class Surat_masuk extends CI_Controller
 		// 	'title' => 'KSPPS BMT Sehati',
 		// 	'suratMasuk' => $this->M_surat_masuk->edit_data($where, 'tb_surat_masuk')->result()
 		// );
-		$data['title'] = 'KSPPS BMT Sehati';
-		$data['suratMasuk'] = $this->M_surat_masuk->edit_data($where)->result();
+		$data = array(
+			'title' => 'KSPPS BMT Sehati',
+			'instansi' => $this->M_instansi->tampil(),
+			'jenis_surat' => $this->M_jenis_surat->tampil(),
+			'suratMasuk' => $this->M_surat_masuk->edit_data($where)->result()
+		);
+		//$data['title'] = 'KSPPS BMT Sehati';
+
+		//$data['suratMasuk'] = $this->M_surat_masuk->edit_data($where)->result();
 
 
 		$this->load->view('templates_administrator/header', $data);

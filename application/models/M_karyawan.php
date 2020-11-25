@@ -25,6 +25,7 @@ class M_karyawan extends CI_Model
 	//edit
 	public function edit_data($where, $table)
 	{
+		$this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_karyawan.id_jabatan', 'left');
 		return $this->db->get_where($table, $where);
 	}
 

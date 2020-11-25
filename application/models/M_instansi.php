@@ -30,4 +30,10 @@ class M_instansi extends CI_Model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	// hitung data (count dashboard)
+	public function count_data($where = '')
+	{
+		return $this->db->query("select*from tb_instansi $where");
+	}
 }

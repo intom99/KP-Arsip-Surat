@@ -22,6 +22,9 @@ class M_surat_masuk extends CI_Model
 
 	public function edit_data($where)
 	{
+		$this->db->join('tb_instansi', 'tb_instansi.id_instansi=tb_surat_masuk.id_instansi', 'left');
+		$this->db->join('tb_jenis_surat', 'tb_jenis_surat.id_js=tb_surat_masuk.id_js', 'left');
+
 		return $this->db->get_where('tb_surat_masuk', $where);
 	}
 
@@ -32,5 +35,11 @@ class M_surat_masuk extends CI_Model
 		$query = $this->db->get_where('tb_surat_masuk', array('id_surat_masuk' => $id))->row();
 
 		return $query;
+	}
+
+	// ambil data
+	public function count_data($where = '')
+	{
+		return $this->db->query("select*from tb_surat_masuk $where;");
 	}
 }
