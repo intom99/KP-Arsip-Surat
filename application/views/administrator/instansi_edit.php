@@ -30,12 +30,12 @@
 							<div class="form-group">
 								<label class="font-weight-bold">Nama Instansi</label>
 								<input type="hidden" name="id_instansi" value="<?php echo $row->id_instansi ?>">
-								<input type="text" name="nama_instansi" class="form-control" value="<?php echo $row->nama_instansi ?>">
+								<input type="text" name="nama_instansi" class="form-control" value="<?php echo $row->nama_instansi ?>" required>
 							</div>
 
 							<div class="form-group">
 								<label class="font-weight-bold">Alamat Instansi</label>
-								<textarea name="alamat_instansi" placeholder="Masukkan Alamat Instansi" class="form-control" required><?php echo $row->alamat_instansi ?></textarea>
+								<textarea name="alamat_instansi" placeholder="Masukkan Alamat Instansi" class="form-control" required required><?php echo $row->alamat_instansi ?></textarea>
 								<?php echo form_error('alamat_instansi', '<div class="text-danger small" ml-3>'); ?>
 
 							</div>

@@ -28,6 +28,12 @@ class M_surat_masuk extends CI_Model
 		return $this->db->get_where('tb_surat_masuk', $where);
 	}
 
+	// update data
+	public function update_data($table, $data, $where)
+	{
+		$this->db->update($table, $data, $where);
+	}
+
 	public function detail_data($id = Null)
 	{
 		$this->db->join('tb_instansi', 'tb_instansi.id_instansi = tb_surat_masuk.id_instansi', 'left');
@@ -35,6 +41,13 @@ class M_surat_masuk extends CI_Model
 		$query = $this->db->get_where('tb_surat_masuk', array('id_surat_masuk' => $id))->row();
 
 		return $query;
+	}
+
+	// hapus data
+	public function delete_data($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
 	}
 
 	// ambil data

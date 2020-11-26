@@ -19,17 +19,6 @@ class Surat_masuk extends CI_Controller
 		}
 	}
 
-	// rule
-	public function _rules()
-	{
-
-		$this->form_validation->set_rules('no_surat', 'no_surat', 'required', ['required' => 'No Surat Wajib Diisi']);
-		$this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
-		$this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
-		$this->form_validation->set_rules('ket', 'ket', 'required', ['required' => 'keterangan Wajib Diisi']);
-		//$this->form_validation->set_rules('lampiran', 'lampiran', 'required', ['required' => 'lampiran Wajib Diisi']);
-	}
-
 
 	public function index()
 	{
@@ -149,17 +138,12 @@ class Surat_masuk extends CI_Controller
 		$this->load->model('M_surat_masuk');
 		$where = array('id_surat_masuk' => $id);
 
-		// $data = array(
-		// 	'title' => 'KSPPS BMT Sehati',
-		// 	'suratMasuk' => $this->M_surat_masuk->edit_data($where, 'tb_surat_masuk')->result()
-		// );
 		$data = array(
 			'title' => 'KSPPS BMT Sehati',
 			'instansi' => $this->M_instansi->tampil(),
 			'jenis_surat' => $this->M_jenis_surat->tampil(),
 			'suratMasuk' => $this->M_surat_masuk->edit_data($where)->result()
 		);
-		//$data['title'] = 'KSPPS BMT Sehati';
 
 		//$data['suratMasuk'] = $this->M_surat_masuk->edit_data($where)->result();
 
@@ -173,6 +157,82 @@ class Surat_masuk extends CI_Controller
 	// Edit Aksi
 	public function update()
 	{
+		$this->_rules();
+
+		if ($this->form_validation->run() == FALSE) {
+		} else {
+			$id_surat_masuk = $this->input->post('id_surat_masuk', TRUE);
+			$no_surat = $this->input->post('no_surat', TRUE);
+			$tgl_surat = $this->input->post('tgl_surat', TRUE);
+			$id_instansi = $this->input->post('id_instansi', TRUE);
+			$id_js = $this->input->post('id_js', TRUE);
+			$perihal = $this->input->post('perihal', TRUE);
+			$ket = $this->input->post('ket', TRUE);
+			// $lampiran = $_FILES['lampiran'];
+
+			// if ($lampiran = '') {
+			// } else {
+			// 	$config['upload_path'] = './assets/arsip';
+			// 	$config['allowed_types'] = 'pdf|jpeg';
+			// 	$config['max_size']             = 0;
+
+			// 	$this->load->library('upload', $config);
+			// 	if (!$this->upload->do_upload('lampiran')) {
+			// 		echo "Upload Gagal";
+			// 		die();
+			// 	} else {
+			// 		$lampiran = $this->upload->data('file_name');
+			// 	}
+			// }
+
+			$data = array(
+				'no_surat' => $no_surat,
+				'tgl_surat' => $tgl_surat,
+				'id_instansi' => $id_instansi,
+				'id_js' => $id_js,
+				'perihal' => $perihal,
+				'ket' => $ket,
+				//'lampiran' => $lampiran
+			);
+
+			$where = array(
+				'id_surat_masuk' => $id_surat_masuk
+			);
+
+			$this->M_surat_masuk->update_data('tb_surat_masuk', $data, $where);
+
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+						Data Surat Masuk Berhasil diupdate
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button></div>');
+
+			redirect('administrator/Surat_masuk');
+		}
+	}
+
+	// rule
+	public function _rules()
+	{
+
+		$this->form_validation->set_rules('no_surat', 'no_surat', 'required', ['required' => 'No Surat Wajib Diisi']);
+		$this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
+		$this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
+		$this->form_validation->set_rules('ket', 'ket', 'required', ['required' => 'keterangan Wajib Diisi']);
+		//$this->form_validation->set_rules('lampiran', 'lampiran', 'required', ['required' => 'lampiran Wajib Diisi']);
+	}
+
+	// Hapus data
+	public function delete($id)
+	{
+		$where = array('id_surat_masuk' => $id);
+		$this->M_surat_masuk->delete_data($where, 'tb_surat_masuk');
+
+		$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						Data Surat Masuk Berhasil dihapus
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button></div>');
+
+		redirect('administrator/Surat_masuk');
 	}
 
 	//Detail

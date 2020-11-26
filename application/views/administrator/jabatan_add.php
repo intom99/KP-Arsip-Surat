@@ -28,7 +28,8 @@
                     <form method="post" action="<?php echo base_url('/administrator/Jabatan/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group">
                             <label class="font-weight-bold">Jabatan</label>
-                            <input type="text" class="form-control" id="nama_jabatan" name="nama_jabatan" placeholder="">
+                            <input type="text" class="form-control" id="nama_jabatan" name="nama_jabatan" placeholder="" required>
+                            <?php echo form_error('nama_jabatan', '<div class="text-danger small" ml-3>'); ?>
                         </div>
                         <hr>
                         <a href="<?php echo base_url('administrator/jabatan') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>

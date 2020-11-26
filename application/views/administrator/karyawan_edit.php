@@ -30,36 +30,32 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Karyawan</label>
                                 <input type="hidden" name="id_karyawan" class="form-control" value="<?php echo $rows->id_karyawan ?>">
-                                <input type="text" name="nama_karyawan" placeholder=" Masukkan Nama" class="form-control" value="<?php echo $rows->nama_karyawan ?>">
+                                <input type="text" name="nama_karyawan" placeholder=" Masukkan Nama" required class="form-control" value="<?php echo $rows->nama_karyawan ?>">
 
                                 <?php echo form_error('nama_karyawan', '<div class="text-danger small" ml-3>'); ?>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Jabatan</label>
-                                <select name="id_jabatan" class="form-control">
+                                <select name="id_jabatan" class="form-control" required>
                                     <option value="">--piilih jabatan --</option>
                                     <?php foreach ($jabatan as $row) : ?>
                                         <option value="<?php echo $row->id_jabatan ?>" <?php if ($row->id_jabatan == $rows->id_jabatan) {
                                                                                             echo "selected=\"selected\"";
                                                                                         } ?>><?php echo $row->nama_jabatan ?></option>
 
-
                                     <?php endforeach ?>
 
                                 </select>
+                                <?php echo form_error('id_jabatan', '<div class="text-danger small" ml-3>'); ?>
                             </div>
                             <hr>
-
 
                             <a href="<?php echo base_url('administrator/karyawan') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
 
                         </form>
                     <?php endforeach ?>
-
-
-
 
                 </div>
             </div>

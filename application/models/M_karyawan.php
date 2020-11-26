@@ -7,7 +7,6 @@ class M_karyawan extends CI_Model
 	//tampil
 	public function tampil()
 	{
-
 		$this->db->select('*');
 		$this->db->from('tb_karyawan');
 		$this->db->join('tb_jabatan', 'tb_jabatan.id_jabatan = tb_karyawan.id_jabatan', 'left');
@@ -30,10 +29,9 @@ class M_karyawan extends CI_Model
 	}
 
 	//edit aksi
-	public function update_data($where, $data, $table)
+	public function update_data($table, $data, $where)
 	{
-		$this->db->where($where);
-		$this->db->update($table, $data);
+		$this->db->update($table, $data, $where);
 	}
 
 	//Hapus

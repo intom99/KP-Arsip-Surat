@@ -6,6 +6,7 @@ class M_instansi extends CI_Model
 
 	public function tampil()
 	{
+		$this->db->order_by('tb_instansi.id_instansi', 'desc');
 		return $this->db->get('tb_instansi')->result();
 	}
 

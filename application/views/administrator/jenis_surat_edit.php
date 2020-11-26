@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Jenis Surat</label>
                                 <input type="hidden" name="id_js" value="<?php echo $row->id_js ?>">
-                                <input type="text" name="jenis_surat" class="form-control" value="<?php echo $row->jenis_surat ?>">
+                                <input type="text" name="jenis_surat" class="form-control" required value="<?php echo $row->jenis_surat ?>">
                             </div>
                             <hr>
                             <a href="<?php echo base_url('administrator/Jenis_surat') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>

@@ -59,7 +59,7 @@
 
 									<td width="200px" class="text-center">
 										<a href="<?php echo base_url() ?>administrator/surat_masuk/detail/<?php echo $row->id_surat_masuk ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-info"></i> Detail</a>
-										<a href="<?php echo base_url('administrator/instansi/edit/') ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_masuk/delete/') . $row->id_surat_masuk ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>
 

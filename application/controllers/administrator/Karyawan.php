@@ -47,12 +47,7 @@ class Karyawan extends CI_Controller
 		$this->load->view('templates_administrator/footer');
 	}
 
-	// rules
-	public function _rules()
-	{
-		$this->form_validation->set_rules('nama_karyawan', 'nama_karyawan', 'required', ['required' => 'nama wajib diisi']);
-		$this->form_validation->set_rules('id_jabatan', 'id_jabatan', 'required', ['required' => 'nama wajib diisi']);
-	}
+
 
 	// aksi add (input)
 	public function input()
@@ -97,9 +92,44 @@ class Karyawan extends CI_Controller
 		$this->load->view('administrator/karyawan_edit', $data);
 		$this->load->view('templates_administrator/footer');
 	}
+
 	//edit aksi(update)
 	public function update()
 	{
+		$this->_rules();
+
+		if ($this->form_validation->run() == FALSE) {
+		} else {
+			$id_karyawan = $this->input->post('id_karyawan', TRUE);
+			$nama_karyawan = $this->input->post('nama_karyawan', TRUE);
+			$id_jabatan = $this->input->post('id_jabatan', TRUE);
+
+			$data = array(
+				'nama_karyawan' => $nama_karyawan,
+				'id_jabatan' => $id_jabatan
+			);
+
+			$where = array(
+				'id_karyawan' => $id_karyawan
+			);
+
+			$this->M_karyawan->update_data('tb_karyawan', $data, $where);
+
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+						Data Karyawan Berhasil diupdate
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button></div>');
+
+			redirect('administrator/karyawan');
+		}
+	}
+
+	// rules
+	public function _rules()
+	{
+		$this->form_validation->set_rules('id_karyawan', 'id_karyawan', 'required', ['required' => 'id wajib diisi']);
+		$this->form_validation->set_rules('nama_karyawan', 'nama_karyawan', 'required', ['required' => 'nama wajib diisi']);
+		$this->form_validation->set_rules('id_jabatan', 'id_jabatan', 'required', ['required' => 'jabatan wajib diisi']);
 	}
 
 	// Hapus

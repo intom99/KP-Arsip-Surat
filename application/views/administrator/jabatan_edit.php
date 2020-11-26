@@ -30,7 +30,8 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Jabatan</label>
                                 <input type="hidden" name="id_jabatan" value="<?php echo $row->id_jabatan ?>">
-                                <input type="text" name="nama_jabatan" class="form-control" value="<?php echo $row->nama_jabatan ?>">
+                                <input type="text" name="nama_jabatan" class="form-control" value="<?php echo $row->nama_jabatan ?>" required>
+                                <?php echo form_error('nama_jabatan', '<div class="text-danger small" ml-3>'); ?>
                             </div>
 
                             <hr>

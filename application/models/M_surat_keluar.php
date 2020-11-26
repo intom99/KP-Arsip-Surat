@@ -13,6 +13,23 @@ class M_surat_keluar extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function input_data($data)
+    {
+        return $this->db->insert('tb_surat_keluar', $data);
+    }
+    public function edit_data($where)
+    {
+        $this->db->join('tb_instansi', 'tb_instansi.id_instansi = tb_surat_keluar.id_instansi', 'left');
+        $this->db->join('tb_jenis_surat', 'tb_jenis_surat.id_js = tb_surat_keluar.id_js', 'left');
+
+        return $this->db->get_where('tb_surat_keluar', $where);
+    }
+
+    public function update_data($table, $data, $where)
+    {
+        $this->db->update($table, $data, $where);
+    }
+
     public function detail_data($id = Null)
     {
 
@@ -21,6 +38,13 @@ class M_surat_keluar extends CI_Model
         $query = $this->db->get_where('tb_surat_keluar', array('id_surat_keluar' => $id))->row();
 
         return $query;
+    }
+
+    // hapus data
+    public function delete_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 
     //ambil data

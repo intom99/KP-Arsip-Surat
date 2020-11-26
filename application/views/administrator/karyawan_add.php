@@ -29,14 +29,14 @@
 
 						<div class="form-group">
 							<label class="font-weight-bold">Nama Karyawan</label>
-							<input type="text" name="nama_karyawan" placeholder=" Masukkan Nama" class="form-control">
+							<input type="text" name="nama_karyawan" placeholder=" Masukkan Nama" class="form-control" required>
 
 							<?php echo form_error('nama_karyawan', '<div class="text-danger small" ml-3>'); ?>
 						</div>
 
 						<div class="form-group">
 							<label class="font-weight-bold">Jabatan</label>
-							<select name="id_jabatan" class="form-control">
+							<select name="id_jabatan" class="form-control" required>
 								<option value="">--Pilih Jabatan--</option>
 								<?php foreach ($jabatan as $row) : ?>
 									<option value="<?php echo $row->id_jabatan ?>"><?php echo $row->nama_jabatan ?></option>

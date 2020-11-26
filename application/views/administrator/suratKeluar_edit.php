@@ -4,12 +4,12 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-envelope"></i> Edit Surat Masuk
+                        <h1><i class="fas fa-envelope-open"></i> Edit Surat Masuk
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_masuk') ?>">Surat Masuk</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Masuk</a></li>
                             <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>
@@ -24,15 +24,15 @@
 
                 <div class="card-body">
 
-                    <?php foreach ($suratMasuk as $rows) : ?>
-                        <form method="post" action="<?php echo base_url('/administrator/surat_masuk/update'); ?>" class="ml-4 mr-4 mt-3 mb-3">
+                    <?php foreach ($suratKeluar as $rows) : ?>
+                        <form method="post" action="<?php echo base_url('/administrator/surat_keluar/update'); ?>" class="ml-4 mr-4 mt-3 mb-3">
 
                             <hr>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="font-weight-bold">No Surat</label>
-                                        <input type="hidden" class="form-control" name="id_surat_masuk" value="<?php echo $rows->id_surat_masuk ?>">
+                                        <input type="hidden" class="form-control" name="id_surat_keluar" value="<?php echo $rows->id_surat_keluar ?>">
                                         <input type="text" class="form-control" id="no_surat" name="no_surat" required value="<?php echo $rows->no_surat ?>">
                                         <?php echo form_error('no_surat', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
@@ -98,7 +98,7 @@
 
 
                             <hr>
-                            <a href="<?php echo base_url() ?>/administrator/surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
+                            <a href="<?php echo base_url() ?>/administrator/surat_keluar/detail/<?php echo $rows->id_surat_keluar ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
                         </form>
                     <?php endforeach ?>

@@ -5,7 +5,7 @@
 			<nav aria-label="breadcrumb">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1><i class="fas fa-envelope"></i> Surat Keluar</h1>
+						<h1><i class="fas fa-envelope-open"></i> Surat Keluar</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
 			<!-- card of tables -->
 			<div class="card">
 				<div class="card-body">
-					<?php echo anchor('administrator/suratMasuk/input', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
+					<?php echo anchor('administrator/Surat_keluar/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
 					<hr>
 
 					<table class="table table-bordered table-striped" id="dataTable">
@@ -59,7 +59,7 @@
 
 									<td width="200px" class="text-center">
 										<a href="<?php echo base_url('administrator/Surat_keluar/detail/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-plus"></i> Detail</a>
-										<a href="<?php echo base_url('administrator/') ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_keluar/delete/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>
 

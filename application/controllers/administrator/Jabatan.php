@@ -105,7 +105,7 @@ class Jabatan extends CI_Controller
 	public function _rules()
 	{
 
-		$this->form_validation->set_rules('nama_jabatan', 'nama_jabatan', 'required', ['required' => 'Nama Jabatan Wajib Diisi']);
+		$this->form_validation->set_rules('nama_jabatan', 'nama_jabatan', 'required', ['required' => 'Jabatan Wajib Diisi']);
 	}
 
 

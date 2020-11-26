@@ -72,7 +72,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <!--  <h6 class="collapse-header">Sub-Laporan:</h6> -->
             <a class="collapse-item" href="<?php echo base_url('administrator/Arsip_surat_masuk') ?>">Arsip Surat Masuk</a>
-            <a class="collapse-item" href="#">Arsip Surat Keluar</a>
+            <a class="collapse-item" href="<?php echo base_url('administrator/Arsip_surat_keluar') ?>">Arsip Surat Keluar</a>
           </div>
         </div>
       </li>
