@@ -46,45 +46,45 @@
                         <div class="tab-pane fade show active" id="dataSurat" role="tabpanel" aria-labelledby="dataSurat-tab">
 
                             <!-- table -->
-                            <table class="table text-left mt-5 ml-4">
+                            <table class="table text-left mt-5">
                                 <tr>
-                                    <td width="200px">Tanggal Diterima</td>
+                                    <td width="200px" class="font-weight-bold">Tanggal Diterima</td>
                                     <td width="30px">:</td>
                                     <td>12-12-2020</td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Asal Surat</td>
+                                    <td width="200px" class="font-weight-bold">Asal Surat</td>
                                     <td width="30px">:</td>
                                     <td> <?php echo $suratKeluar->nama_instansi ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Nomor Surat</td>
+                                    <td width="200px" class="font-weight-bold">Nomor Surat</td>
                                     <td width="30px">:</td>
                                     <td><?php echo $suratKeluar->no_surat ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Tanggal Surat</td>
+                                    <td width="200px" class="font-weight-bold">Tanggal Surat</td>
                                     <td width="30px">:</td>
                                     <td><?php echo $suratKeluar->tgl_surat ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Jenis Surat</td>
+                                    <td width="200px" class="font-weight-bold">Jenis Surat</td>
                                     <td width="30px">:</td>
                                     <td><?php echo $suratKeluar->jenis_surat ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Perihal</td>
+                                    <td width="200px" class="font-weight-bold">Perihal</td>
                                     <td width="30px">:</td>
                                     <td><?php echo $suratKeluar->perihal ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td width="200px">Keterangan</td>
+                                    <td width="200px" class="font-weight-bold">Keterangan</td>
                                     <td width="30px">:</td>
                                     <td><?php echo $suratKeluar->ket ?></td>
 
@@ -97,7 +97,7 @@
 
                         </div>
                         <div class="tab-pane fade" id="arsipSurat" role="tabpanel" aria-labelledby="arsipSurat-tab">
-                            Hello Worlds!
+                            <embed class="mt-5" width="1270" height="600" src="<?php echo base_url('assets/arsip/' . $suratKeluar->lampiran); ?>" type="application/pdf"></embed>
                         </div>
                     </div>
 

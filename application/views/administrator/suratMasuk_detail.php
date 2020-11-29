@@ -96,7 +96,8 @@
 
                         </div>
                         <div class="tab-pane fade" id="arsipSurat" role="tabpanel" aria-labelledby="arsipSurat-tab">
-                            <img style="width:150px;height:71px;" src="<?php echo base_url('assets/arsip/' . $suratMasuk->lampiran); ?>">
+                            <embed class="mt-5" width="1270" height="600" src="<?php echo base_url('assets/arsip/' . $suratMasuk->lampiran); ?>" type="application/pdf"></embed>
+
                         </div>
                     </div>
 
