@@ -4,12 +4,12 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-envelope-open"></i> Edit Surat Masuk
+                        <h1><i class="fas fa-envelope-open"></i> Edit Surat Keluar
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Masuk</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Keluar</a></li>
                             <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     <?php foreach ($suratKeluar as $rows) : ?>
-                        <form method="post" action="<?php echo base_url('/administrator/surat_keluar/update'); ?>" class="ml-4 mr-4 mt-3 mb-3">
+                        <form method="post" action="<?php echo base_url('/administrator/surat_keluar/update'); ?>" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
 
                             <hr>
                             <div class="row">
@@ -81,6 +81,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="font-weight-bold">Keterangan</label>
+
                                         <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan" value="<?php echo $rows->ket ?>">
                                         <?php echo form_error('keterangan', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
@@ -90,9 +91,10 @@
                             <!-- lampiran atau upload file pdf -->
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Lampiran</label>
-
-                                <input type="file" name="lampiran" class="form-control">
+                                <label class="font-weight-bold">Lampiran</label><br>
+                                <label>
+                                    <input type="file" name="lampiran" class="form-control"></label>
+                                <label class="ml-3"><i class="fas fa-file-pdf mr-2"></i><?php echo $rows->lampiran ?></label>
 
                             </div>
 

@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     <?php foreach ($suratMasuk as $rows) : ?>
-                        <form method="post" action="<?php echo base_url('/administrator/surat_masuk/update'); ?>" class="ml-4 mr-4 mt-3 mb-3">
+                        <form method="post" action="<?php echo base_url('/administrator/surat_masuk/update'); ?>" enctype="multipart/form-data" class="ml-4 mr-4 mt-3 mb-3">
 
                             <hr>
                             <div class="row">
@@ -92,7 +92,9 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Lampiran</label>
 
-                                <input type="file" name="lampiran" class="form-control">
+                                <label>
+                                    <input type="file" name="lampiran" class="form-control"></label>
+                                <label class="ml-3"><i class="fas fa-file-pdf mr-2"></i><?php echo $rows->lampiran ?></label>
 
                             </div>
 

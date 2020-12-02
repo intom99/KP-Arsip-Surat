@@ -19,6 +19,7 @@ class Surat_keluar extends CI_Controller
 
     public function index()
     {
+
         $data = array(
             'title' => 'KSPPS BMT Sehati',
             'suratKeluar' => $this->M_surat_keluar->tampil()
@@ -59,6 +60,22 @@ class Surat_keluar extends CI_Controller
             $id_js = $this->input->post('id_js', TRUE);
             $perihal = $this->input->post('perihal', TRUE);
             $ket = $this->input->post('ket', TRUE);
+            $lampiran = $_FILES['lampiran'];
+            if ($lampiran = '') {
+            } else {
+                $config['upload_path'] = './assets/arsip/surat-keluar';
+                $config['allowed_types'] = 'pdf';
+                $config['max_size']             = 0;
+
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('lampiran')) {
+
+                    echo "Upload Gagal";
+                    die();
+                } else {
+                    $lampiran = $this->upload->data('file_name');
+                }
+            }
 
 
             $data = array(
@@ -68,7 +85,7 @@ class Surat_keluar extends CI_Controller
                 'id_js' => $id_js,
                 'perihal' => $perihal,
                 'ket' => $ket,
-                //'lampiran' => $lampiran
+                'lampiran' => $lampiran
             );
 
             $this->M_surat_keluar->input_data($data);
@@ -114,6 +131,21 @@ class Surat_keluar extends CI_Controller
             $id_js = $this->input->post('id_js', TRUE);
             $perihal = $this->input->post('perihal', TRUE);
             $ket = $this->input->post('ket', TRUE);
+            $lampiran = $_FILES['lampiran']['name'];
+            if ($lampiran) {
+                $config['upload_path'] = './assets/arsip/surat-keluar';
+                $config['allowed_types'] = 'pdf';
+                $config['max_size']             = 0;
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('lampiran')) {
+                    $lampiran = $this->upload->data('file_name');
+                    $this->db->set('lampiran', $lampiran);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
 
 
             $data = array(
@@ -123,7 +155,7 @@ class Surat_keluar extends CI_Controller
                 'id_js' => $id_js,
                 'perihal' => $perihal,
                 'ket' => $ket,
-                //'lampiran' => $lampiran
+
             );
             $where = array('id_surat_keluar' => $id_surat_keluar);
 
@@ -153,6 +185,7 @@ class Surat_keluar extends CI_Controller
     public function detail($id)
     {
         $this->load->model('M_surat_keluar');
+
 
         $data = array(
             'title' => 'KSPPS BMT Sehati',

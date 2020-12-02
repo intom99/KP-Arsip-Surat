@@ -25,6 +25,7 @@ class Surat_masuk extends CI_Controller
 		$data = array(
 			'title' => 'KSPPS BMT Sehati',
 			'suratMasuk' => $this->M_surat_masuk->tampil()
+
 		);
 
 		$this->load->view('templates_administrator/header', $data);
@@ -39,7 +40,8 @@ class Surat_masuk extends CI_Controller
 			'title' => 'KSPPS BMT Sehati',
 			'suratMasuk' => $this->M_surat_masuk->tampil(),
 			'instansi' => $this->M_instansi->tampil(),
-			'jenis_surat' => $this->M_jenis_surat->tampil()
+			'jenis_surat' => $this->M_jenis_surat->tampil(),
+
 		);
 		$this->load->view('templates_administrator/header', $data);
 		$this->load->view('templates_administrator/sidebar');
@@ -61,22 +63,22 @@ class Surat_masuk extends CI_Controller
 			$id_js = $this->input->post('id_js', TRUE);
 			$perihal = $this->input->post('perihal', TRUE);
 			$ket = $this->input->post('ket', TRUE);
-			// $lampiran = $_FILES['lampiran'];
+			$lampiran = $_FILES['lampiran'];
+			if ($lampiran = '') {
+			} else {
+				$config['upload_path'] = './assets/arsip/surat-masuk';
+				$config['allowed_types'] = 'pdf';
+				$config['max_size']             = 0;
 
-			// if ($lampiran = '') {
-			// } else {
-			// 	$config['upload_path'] = './assets/arsip';
-			// 	$config['allowed_types'] = 'pdf|jpeg';
-			// 	$config['max_size']             = 0;
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('lampiran')) {
 
-			// 	$this->load->library('upload', $config);
-			// 	if (!$this->upload->do_upload('lampiran')) {
-			// 		echo "Upload Gagal";
-			// 		die();
-			// 	} else {
-			// 		$lampiran = $this->upload->data('file_name');
-			// 	}
-			// }
+					echo "Upload Gagal";
+					die();
+				} else {
+					$lampiran = $this->upload->data('file_name');
+				}
+			}
 
 			$data = array(
 				'no_surat' => $no_surat,
@@ -85,7 +87,7 @@ class Surat_masuk extends CI_Controller
 				'id_js' => $id_js,
 				'perihal' => $perihal,
 				'ket' => $ket,
-				//'lampiran' => $lampiran
+				'lampiran' => $lampiran
 			);
 
 			$this->M_surat_masuk->input_data($data);
@@ -97,39 +99,6 @@ class Surat_masuk extends CI_Controller
 
 			redirect('administrator/Surat_masuk');
 		}
-
-
-		// // upload file
-		// $config['upload_path']          = './uploads/';
-		// $config['allowed_types']        = 'pdf';
-		// $config['max_size']             = 0;
-		// // $config['max_width']            = 1024;
-		// // $config['max_height']           = 768;
-
-		// $this->load->library('upload', $config);
-
-		// if (!$this->upload->do_upload('lampiran')) {
-		// 	$error = array('error' => $this->upload->display_errors());
-		// 	$data['title'] = 'KSPPS BMT Sehati';
-
-		// 	$this->load->view('templates_administrator/header', $data);
-		// 	$this->load->view('templates_administrator/sidebar');
-		// 	$this->load->view('administrator/suratMasuk_add', $error);
-		// 	$this->load->view('templates_administrator/footer');
-		// } else {
-		// 	$upload_data = $this->upload->data();
-		// 	$data = array(
-		// 		'lampiran' => $upload_data['file_name']
-		// 	);
-		// 	$this->M_surat_masuk->input_data($data);
-		// 	redirect('administrator/surat_masuk');
-
-		// 	// //$this->load->view('upload_success', $data);
-		// 	// $this->load->view('templates_administrator/header', $data);
-		// 	// $this->load->view('templates_administrator/sidebar');
-		// 	// $this->load->view('administrator/suratMasuk', $data);
-		// 	// $this->load->view('templates_administrator/footer');
-		// }
 	}
 
 	//fungsi edit
@@ -144,9 +113,6 @@ class Surat_masuk extends CI_Controller
 			'jenis_surat' => $this->M_jenis_surat->tampil(),
 			'suratMasuk' => $this->M_surat_masuk->edit_data($where)->result()
 		);
-
-		//$data['suratMasuk'] = $this->M_surat_masuk->edit_data($where)->result();
-
 
 		$this->load->view('templates_administrator/header', $data);
 		$this->load->view('templates_administrator/sidebar');
@@ -168,22 +134,21 @@ class Surat_masuk extends CI_Controller
 			$id_js = $this->input->post('id_js', TRUE);
 			$perihal = $this->input->post('perihal', TRUE);
 			$ket = $this->input->post('ket', TRUE);
-			// $lampiran = $_FILES['lampiran'];
+			$lampiran = $_FILES['lampiran']['name'];
+			if ($lampiran) {
+				$config['upload_path'] = './assets/arsip/surat-masuk';
+				$config['allowed_types'] = 'pdf';
+				$config['max_size']             = 0;
 
-			// if ($lampiran = '') {
-			// } else {
-			// 	$config['upload_path'] = './assets/arsip';
-			// 	$config['allowed_types'] = 'pdf|jpeg';
-			// 	$config['max_size']             = 0;
+				$this->load->library('upload', $config);
 
-			// 	$this->load->library('upload', $config);
-			// 	if (!$this->upload->do_upload('lampiran')) {
-			// 		echo "Upload Gagal";
-			// 		die();
-			// 	} else {
-			// 		$lampiran = $this->upload->data('file_name');
-			// 	}
-			// }
+				if ($this->upload->do_upload('lampiran')) {
+					$lampiran = $this->upload->data('file_name');
+					$this->db->set('lampiran', $lampiran);
+				} else {
+					echo $this->upload->display_errors();
+				}
+			}
 
 			$data = array(
 				'no_surat' => $no_surat,
@@ -191,8 +156,7 @@ class Surat_masuk extends CI_Controller
 				'id_instansi' => $id_instansi,
 				'id_js' => $id_js,
 				'perihal' => $perihal,
-				'ket' => $ket,
-				//'lampiran' => $lampiran
+				'ket' => $ket
 			);
 
 			$where = array(
@@ -218,7 +182,6 @@ class Surat_masuk extends CI_Controller
 		$this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
 		$this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
 		$this->form_validation->set_rules('ket', 'ket', 'required', ['required' => 'keterangan Wajib Diisi']);
-		//$this->form_validation->set_rules('lampiran', 'lampiran', 'required', ['required' => 'lampiran Wajib Diisi']);
 	}
 
 	// Hapus data

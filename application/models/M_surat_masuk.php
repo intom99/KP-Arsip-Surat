@@ -55,4 +55,10 @@ class M_surat_masuk extends CI_Model
 	{
 		return $this->db->query("select*from tb_surat_masuk $where;");
 	}
+
+	// ------------ Filter Arsip Surat Masuk --------------------
+
+	public function getTahun()
+	{
+	}
 }

@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-envelope"></i> Detail Surat Keluar</h1>
+                        <h1><i class="fas fa-envelope-open"></i> Detail Surat Keluar</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -68,7 +68,9 @@
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Surat</td>
                                     <td width="30px">:</td>
-                                    <td><?php echo $suratKeluar->tgl_surat ?></td>
+                                    <td><?php
+
+                                        echo $suratKeluar->tgl_surat = date('d M Y', strtotime($suratKeluar->tgl_surat)); ?></td>
 
                                 </tr>
                                 <tr>

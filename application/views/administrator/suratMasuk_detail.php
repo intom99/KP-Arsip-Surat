@@ -66,7 +66,7 @@
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Surat</td>
                                     <td width="30px">:</td>
-                                    <td><?php echo $suratMasuk->tgl_surat ?></td>
+                                    <td><?php echo $suratMasuk->tgl_surat = date('d M Y', strtotime($suratMasuk->tgl_surat)); ?></td>
                                     <!-- tanggal surat coba berurutan -->
 
                                 </tr>

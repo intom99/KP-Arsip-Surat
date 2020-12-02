@@ -24,10 +24,10 @@
 
                 <div class="card-body">
 
+                    <form action="<?php echo base_url('administrator/surat_masuk/input') ?>" method="post" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
 
-                    <form method="post" action="<?php echo base_url('/administrator/surat_masuk/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group text-right">
-                            <label class="font-weight-bold text-center">Tanggal Hari :</label><span> <?php echo date('d M Y h:i:s a') ?></span>
+                            <label class="font-weight-bold text-center">Tanggal Hari Ini :</label><span> <?php echo format_indo(date('Y-m-d H:i:s')); ?></span>
                         </div>
                         <hr>
                         <div class="row">
@@ -87,16 +87,15 @@
                         <!-- lampiran atau upload file pdf -->
 
                         <div class="form-group">
-                            <label class="font-weight-bold">Lampiran</label>
-
-                            <input type="file" name="lampiran" class="form-control">
-
+                            <label class="font-weight-bold">Lampiran</label><br>
+                            <label>
+                                <input type="file" id="lampiran" name="lampiran" class="form-control" required></label>
                         </div>
-
 
                         <hr>
                         <a href="<?php echo base_url('/administrator/surat_masuk') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                         <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
+
                     </form>
 
 
