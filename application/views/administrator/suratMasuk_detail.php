@@ -45,18 +45,7 @@
 
                             <!-- table -->
                             <table class="table text-left mt-5">
-                                <tr>
-                                    <td width="200px" class="font-weight-bold">Tanggal Diterima</td>
-                                    <td width="30px">:</td>
-                                    <td></td>
 
-                                </tr>
-                                <tr>
-                                    <td width="200px" class="font-weight-bold">Asal Surat</td>
-                                    <td width="30px">:</td>
-                                    <td><?php echo $suratMasuk->nama_instansi ?></td>
-
-                                </tr>
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Nomor Surat</td>
                                     <td width="30px">:</td>
@@ -68,6 +57,12 @@
                                     <td width="30px">:</td>
                                     <td><?php echo $suratMasuk->tgl_surat = date('d M Y', strtotime($suratMasuk->tgl_surat)); ?></td>
                                     <!-- tanggal surat coba berurutan -->
+
+                                </tr>
+                                <tr>
+                                    <td width="200px" class="font-weight-bold">Asal Surat</td>
+                                    <td width="30px">:</td>
+                                    <td><?php echo $suratMasuk->nama_instansi ?></td>
 
                                 </tr>
 
@@ -91,12 +86,28 @@
                                 </tr>
 
                             </table>
+                            <table class="table text-left mt-5">
+                                <tr>
+                                    <td width="200px" class="font-weight-bold">Tanggal Diinput</td>
+                                    <td width="30px">:</td>
+                                    <td><?php echo date('d M Y H:i:s', strtotime($suratMasuk->created))  ?></td>
+                                </tr>
+                                <tr>
+                                    <td width="200px" class="font-weight-bold">Tanggal Diedit</td>
+                                    <td width="30px">:</td>
+                                    <td><?php if ($suratMasuk->modified == null) {
+                                            echo '-';
+                                        } else {
+                                            echo date('d M Y H:i:s', strtotime($suratMasuk->modified));
+                                        } ?></td>
+                                </tr>
+                            </table>
 
                             <!-- end table -->
 
                         </div>
                         <div class="tab-pane fade" id="arsipSurat" role="tabpanel" aria-labelledby="arsipSurat-tab">
-                            <embed class="mt-5" width="1270" height="600" src="<?php echo base_url('assets/arsip/' . $suratMasuk->lampiran); ?>" type="application/pdf"></embed>
+                            <embed class="mt-5" width="1270" height="600" src="<?php echo base_url('assets/arsip/surat-masuk' . $suratMasuk->lampiran); ?>" type="application/pdf"></embed>
 
                         </div>
                     </div>

@@ -49,7 +49,7 @@
 
 								<tr>
 									<td width="20px"><?php echo $no++; ?></td>
-									<td></td>
+									<td><?php echo date('d M Y', strtotime($row->created)) ?></td>
 
 									<td width="200px"><?php echo $row->no_surat . ',<br> ' . $row->tgl_surat ?></td>
 

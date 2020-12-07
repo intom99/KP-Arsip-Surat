@@ -51,7 +51,7 @@
 
 								<tr>
 									<td width="20px"><?php echo $no++; ?></td>
-									<td><?php ?></td>
+									<td><?php echo date('d M Y', strtotime($row->created)) ?></td>
 									<td><?php echo $row->nama_instansi ?></td>
 									<td><?php echo $row->no_surat . ', <br>' . $row->tgl_surat = date('d-m-Y', strtotime($row->tgl_surat)); ?></td>
 									<td><?php echo $row->jenis_surat ?></td>

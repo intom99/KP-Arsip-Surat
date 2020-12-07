@@ -53,12 +53,32 @@ class M_surat_masuk extends CI_Model
 	// ambil data
 	public function count_data($where = '')
 	{
-		return $this->db->query("select*from tb_surat_masuk $where;");
+		return $this->db->query("SELECT*FROM tb_surat_masuk $where;");
 	}
 
 	// ------------ Filter Arsip Surat Masuk --------------------
 
 	public function getTahun()
 	{
+		return $this->db->query("SELECT YEAR(created) AS Tahun 
+		FROM tb_surat_masuk GROUP BY YEAR(created) 
+		ORDER BY YEAR(created) ASC")->result();
+	}
+
+	public function filterByTanggal($tgl_awal, $tgl_akhir)
+	{
+		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE created BETWEEN '$tgl_awal' AND '$tgl_akhir'
+		ORDER BY created ASC")->result();
+	}
+	public function filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
+	{
+		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE YEAR(created) = '$tahun1' AND MONTH(created) BETWEEN '$bulan_awal' AND '$bulan_akhir'
+		ORDER BY created ASC")->result();
+	}
+
+	public function filterBytahun($tahun2)
+	{
+		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE YEAR(created) = '$tahun2'
+		ORDER BY created ASC")->result();
 	}
 }

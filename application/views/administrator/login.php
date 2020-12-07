@@ -26,10 +26,10 @@
                     </div>
                     <div class="form-group">
                       <!-- masih salah -->
-                      <!-- <input type="password" class="form-control border border-dark" id="password" maxlength="10" placeholder="Password" name="password"> -->
+                      <input type="password" class="form-control border border-dark" id="password" placeholder="Password" name="password">
 
-                      <input type="password" class="form-control border border-dark" maxlength="10" placeholder="Password" name="password">
-                      <?php echo form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
+                      <!-- <input type="password" class="form-control border border-dark" maxlength="10" placeholder="Password" name="password">
+                      <?php echo form_error('password', '<small class="text-danger pl-2">', '</small>'); ?> -->
                     </div>
 
 

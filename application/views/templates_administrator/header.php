@@ -26,6 +26,4 @@
 
   <!-- Show Me Password -->
 
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/show-password/all.css">
-
 </head>

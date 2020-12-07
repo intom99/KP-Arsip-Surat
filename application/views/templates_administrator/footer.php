@@ -25,8 +25,6 @@
 <!-- Page level custom scripts -->
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
 
-<script src="<?php echo base_url() ?>assets/js/script.js"></script>
-
 <!-- Datepicker jquery -->
 
 <!-- Show Password -->
