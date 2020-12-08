@@ -18,7 +18,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('administrator/dashboard') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -172,13 +172,38 @@
             <ul class="nav navbar-nav navbar-right mt-2">
               <?php if ($this->session->userdata('username')) { ?>
 
-                <li class="mr-3"><i class="fas fa-sign-out-alt"></i><?php echo anchor('auth/logout', ' Logout'); ?></li>
+                <li class="mr-3"><a class="text-muted font-weight-bold" href="<?php echo base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
               <?php } else { ?>
                 <li><?php echo anchor('auth/login', 'Login'); ?></li>
               <?php } ?>
             </ul>
 
 
+
+
           </ul>
 
         </nav>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+
+              </div>
+              <div class="modal-body">
+
+                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin akan Logout?</h5>
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-primary" href="<?php echo base_url('auth/logout') ?>"> Ok</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+              </div>
+            </div>
+          </div>
+        </div>

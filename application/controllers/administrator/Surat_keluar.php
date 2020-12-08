@@ -43,7 +43,7 @@ class Surat_keluar extends CI_Controller
 
         $this->load->view('templates_administrator/header', $data);
         $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/suratKeluar_add', $data);
+        $this->load->view('administrator/suratKeluar_add', array('error' => '*format file harus PDF', $data));
         $this->load->view('templates_administrator/footer');
     }
 
@@ -69,8 +69,11 @@ class Surat_keluar extends CI_Controller
 
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('lampiran')) {
+                    $error = array('error' => $this->upload->display_errors());
+                    //$this->load->view('administrator/suratKeluar_add', $error);
+                    redirect('administrator/Surat_keluar/add', $error);
 
-                    echo "Upload Gagal";
+
                     die();
                 } else {
                     $lampiran = $this->upload->data('file_name');

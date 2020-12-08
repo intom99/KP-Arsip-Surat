@@ -81,4 +81,6 @@ class M_surat_masuk extends CI_Model
 		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE YEAR(created) = '$tahun2'
 		ORDER BY created ASC")->result();
 	}
+
+	// --------------------- Cetak------------------
 }

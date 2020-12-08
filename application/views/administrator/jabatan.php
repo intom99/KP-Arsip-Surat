@@ -51,7 +51,7 @@
 									<td width="200px" class="text-center">
 
 										<a href="<?php echo base_url() ?>administrator/jabatan/edit/<?php echo $row->id_jabatan; ?>" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit"></i> Edit</a>
-										<a onclick="javascript: return confirm('Apakah anda yakin akan dihapus?');" href="<?php echo base_url() ?>administrator/jabatan/delete/<?php echo $row->id_jabatan; ?>" class=" btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a onclick="javascript: return confirm('Apakah anda yakin akan menghapus data jabatan ?');" href="<?php echo base_url() ?>administrator/jabatan/delete/<?php echo $row->id_jabatan; ?>" class=" btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 
 								</tr>

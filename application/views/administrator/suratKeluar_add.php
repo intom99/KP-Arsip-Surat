@@ -91,6 +91,8 @@
                             <label>
                                 <input type="file" name="lampiran" class="form-control">
                             </label>
+
+                            <?php echo $error ?>
                         </div>
 
 

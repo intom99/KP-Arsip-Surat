@@ -96,13 +96,13 @@
     </button>
   </div>
 
-  <div class="jumbotron jumbotron-fluid">
+  <!-- <div class="jumbotron jumbotron-fluid">
     <div class="container text-dark text-center">
       <h1 class="display-4">KSPPS BMT Sehati</h1>
       <p class="lead">Visi dan Misi</p>
       <p>Berperan serta dalam usaha pemberdayaan perekonomian umat, KSPPS Sehati selalu mengembangkan diri menjadi lembaga keuangan yang berprinsip syariah sehingga dapat menjembatani antara pelaku usaha dengan penyedia dana sebagai sumber permodalan dan pengembangan usaha yang sehat dan islami. Dapat turut serta menciptakan masyarakat madani seperti yang kita cita-citakan bersama.</p>
     </div>
-  </div>
+  </div> -->
 
   <!-- Batas Table Baru -->
 

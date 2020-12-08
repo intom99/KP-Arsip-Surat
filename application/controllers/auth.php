@@ -13,17 +13,12 @@ class Auth extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
-
 	public function index()
 	{
-		$data['title'] = 'Login';
-		$this->load->view('templates_administrator/header', $data);
-		$this->load->view('administrator/login');
-		$this->load->view('templates_administrator/footer');
-	}
+		if ($this->session->userdata('username')) {
+			redirect('administrator/dashboard');
+		}
 
-	public function proses_login()
-	{
 		$this->form_validation->set_rules('username', 'username', 'required', ['required' => '*username wajib diisi']);
 		$this->form_validation->set_rules('password', 'password', 'required', ['required' => '*password wajib diisi']);
 
@@ -72,7 +67,13 @@ class Auth extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->sess_destroy();
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('password');
+		//$this->session->sess_destroy();
+		$this->session->set_flashdata(
+			'pesan',
+			'<div class="alert alert-success" role="alert">You have been Logged out </div>'
+		);
 		redirect('auth');
 	}
 }

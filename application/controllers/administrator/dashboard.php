@@ -6,7 +6,10 @@ class Dashboard extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+	}
 
+	public function index()
+	{
 		if (!isset($this->session->userdata['username'])) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 						Anda Belum Login
@@ -14,10 +17,7 @@ class Dashboard extends CI_Controller
 						<span aria-hidden="true">&times;</span></button></div>');
 			redirect('auth');
 		}
-	}
 
-	public function index()
-	{
 		$sm = $this->M_surat_masuk->count_data();
 		$suratMasuk = $sm->num_rows();
 

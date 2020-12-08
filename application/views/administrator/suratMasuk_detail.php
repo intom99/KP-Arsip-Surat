@@ -107,7 +107,12 @@
 
                         </div>
                         <div class="tab-pane fade" id="arsipSurat" role="tabpanel" aria-labelledby="arsipSurat-tab">
-                            <embed class="mt-5" width="1270" height="600" src="<?php echo base_url('assets/arsip/surat-masuk' . $suratMasuk->lampiran); ?>" type="application/pdf"></embed>
+
+                            <!--  -->
+                            <div class="embed-responsive embed-responsive-16by9 mt-5">
+                                <iframe type="application/pdf" class="embed-responsive-item" src="<?php echo base_url('assets/arsip/surat-masuk/' . $suratMasuk->lampiran); ?>" allowfullscreen></iframe>
+                            </div>
+                            <!--  -->
 
                         </div>
                     </div>
@@ -116,15 +121,6 @@
 
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
 
         </div>
     </section>

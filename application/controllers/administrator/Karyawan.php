@@ -127,7 +127,7 @@ class Karyawan extends CI_Controller
 	// rules
 	public function _rules()
 	{
-		$this->form_validation->set_rules('id_karyawan', 'id_karyawan', 'required', ['required' => 'id wajib diisi']);
+		//$this->form_validation->set_rules('id_karyawan', 'id_karyawan', 'required', ['required' => 'id wajib diisi']);
 		$this->form_validation->set_rules('nama_karyawan', 'nama_karyawan', 'required', ['required' => 'nama wajib diisi']);
 		$this->form_validation->set_rules('id_jabatan', 'id_jabatan', 'required', ['required' => 'jabatan wajib diisi']);
 	}
