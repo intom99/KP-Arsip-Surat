@@ -67,18 +67,26 @@ class M_surat_masuk extends CI_Model
 
 	public function filterByTanggal($tgl_awal, $tgl_akhir)
 	{
-		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE created BETWEEN '$tgl_awal' AND '$tgl_akhir'
+		return $this->db->query("SELECT*FROM tb_surat_masuk INNER JOIN tb_instansi ON tb_instansi.id_instansi = tb_surat_masuk.id_instansi WHERE created BETWEEN '$tgl_awal' AND '$tgl_akhir'
 		ORDER BY created ASC")->result();
+	}
+	public function filterByMinggu()
+	{
+		return $this->db->query("SELECT YEARWEEK(created) AS tahun_minggu, COUNT(*) AS jumlah_mingguan
+		FROM tb_surat_masuk
+		WHERE YEARWEEK(created)=YEARWEEK(NOW())
+		GROUP BY YEARWEEK(created)
+		")->result();
 	}
 	public function filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
 	{
-		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE YEAR(created) = '$tahun1' AND MONTH(created) BETWEEN '$bulan_awal' AND '$bulan_akhir'
+		return $this->db->query("SELECT*FROM tb_surat_masuk INNER JOIN tb_instansi ON tb_instansi.id_instansi = tb_surat_masuk.id_instansi WHERE YEAR(created) = '$tahun1' AND MONTH(created) BETWEEN '$bulan_awal' AND '$bulan_akhir'
 		ORDER BY created ASC")->result();
 	}
 
 	public function filterBytahun($tahun2)
 	{
-		return $this->db->query("SELECT*FROM tb_surat_masuk WHERE YEAR(created) = '$tahun2'
+		return $this->db->query("SELECT*FROM tb_surat_masuk INNER JOIN tb_instansi ON tb_instansi.id_instansi = tb_surat_masuk.id_instansi WHERE YEAR(created) = '$tahun2'
 		ORDER BY created ASC")->result();
 	}
 
