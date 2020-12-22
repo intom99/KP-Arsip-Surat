@@ -31,15 +31,17 @@ class Arsip_surat_masuk extends CI_Controller
         $bulan_akhir = $this->input->post('bulan_akhir');
         $nilai_filter = $this->input->post('nilai_filter');
 
+
         if ($nilai_filter == 1) {
             $data = array(
                 'title' => 'Laporan',
-                'subtitle' => 'Dari Tanggal : ' . $tgl_awal . ' Sampai Tanggal : ' . $tgl_akhir,
+                'subtitle' => 'Dari Tanggal : ' . format_indo(date('Y-m-d', strtotime($tgl_awal))) . ' Sampai Tanggal : ' . format_indo(date('Y-m-d', strtotime($tgl_akhir))),
                 'daftarFilter' => $this->M_surat_masuk->filterByTanggal($tgl_awal, $tgl_akhir)
 
             );
             $this->load->view('administrator/printArsip', $data);
         } elseif ($nilai_filter == 2) {
+
             $data = array(
                 'title' => 'Laporan',
                 'subtitle' => 'Dari Bulan : ' . $bulan_awal . ' Sampai Bulan : ' . $bulan_akhir . ' Tahun : ' . $tahun1,

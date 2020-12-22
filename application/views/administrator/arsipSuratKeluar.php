@@ -8,7 +8,7 @@
                         <h1><i class="fas fa-folder"></i> Arsip Surat Keluar</h1>
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item active">Arsip Surat Keluar</li>
                         </ol>
@@ -25,56 +25,166 @@
     <section class="content">
         <div class="container-fluid">
 
-            <!-- card of tables -->
-            <div class="card">
-                <div class="card-body">
-                    <!-- button here-->
+            <div class="row">
+                <div class="col-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Form Filter</h5>
+                            <hr>
+                            <form>
+                                <b>Pilih Filter berdasarkan :</b><br>
+                                <label class="mt-1">
+                                    <input type="radio" id="showform" value="hari" name="showform" onchange="showhideForm(this.value);" /> Hari
+                                </label><br>
+                                <label>
+                                    <input type="radio" id="showform" value="minggu" name="showform" onchange="showhideForm(this.value);" /> Minggu
 
-                    <hr>
+                                </label><br>
+                                <label>
+                                    <input type="radio" id="showform" value="bulan" name="showform" onchange="showhideForm(this.value);" /> Bulan
+                                </label>
+                            </form>
+                            <a class="btn btn-primary mt-3" href="<?php echo base_url('administrator/Arsip_surat_keluar') ?>" onclick="document.getElementById('form_[form_key]').reset();"><i class="fas fa-sync"></i> Reset</a>
+                        </div>
+                    </div>
 
-                    <table class="table table-bordered table-striped" id="dataTable">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Tanggal</th>
-                                <th>Instansi</th>
-                                <th>No. Surat, Tanggal Surat</th>
-                                <th>Macam Surat</th>
-                                <th>Perihal</th>
-
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php
-                            $no = 1;
-                            foreach ($arsip_surat_keluar as $row) : ?>
-
-                                <tr>
-                                    <td width="20px"><?php echo $no++; ?></td>
-                                    <td></td>
-                                    <td><?php echo $row->nama_instansi ?></td>
-
-                                    <td width="200px"><?php echo $row->no_surat . '<br><br>' . $row->tgl_surat ?></td>
-
-                                    <td><?php echo $row->jenis_surat ?></td>
-                                    <td><?php echo $row->perihal . ',<br> ' . $row->ket ?></td>
-
-
-
-
-                                </tr>
-
-                            <?php endforeach ?>
-
-                        </tbody>
-
-                    </table>
                 </div>
-            </div>
-            <!-- card of tables end -->
 
-        </div>
+
+
+
+                <div class="col">
+                    <div id="div1" style="display:none">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Form Filter Hari</h5>
+                                <hr>
+                                <form action="<?php echo base_url('administrator/Arsip_surat_keluar/filter') ?>" method="post" target="_blank">
+                                    <div class="form-group">
+                                        <input type="hidden" name="nilai_filter" value="1">
+                                        <label>Tanggal Awal :</label>
+                                        <label class="ml-2">
+                                            <input type="date" name="tgl_awal" class="form-control" required>
+                                        </label>
+                                        <label class="ml-5">Tanggal Akhir :</label>
+                                        <label class="ml-2"><input type="date" name="tgl_akhir" class="form-control" required>
+                                        </label>
+                                        <button type="submit" class="btn btn-warning mt-3"><i class="fas fa-print"></i> Print</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div id="div2" style="display:none">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Form Filter Minggu</h5>
+                                <hr>
+
+                                <form action="<?php echo base_url('administrator/Arsip_surat_keluar/filter') ?>" method="post" target="_blank">
+                                    <div class="form-group">
+
+                                        <input type="hidden" name="nilai_filter" value="3">
+                                        <label>Tahun :
+                                            <select name="tahun2" class="form-control">
+                                                <?php foreach ($tahun as $row) : ?>
+                                                    <option value="<?php echo $row->Tahun ?>"><?php echo $row->Tahun ?></option>
+
+                                                <?php endforeach ?>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning"><i class="fas fa-print"></i> Print</button>
+
+                                </form>
+
+                            </div>
+
+
+                        </div>
+                        <!--  -->
+                    </div>
+
+                    <div id="div3" style="display:none">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Form Filter Bulan</h5>
+                                <hr>
+                                <form action="<?php echo base_url('administrator/Arsip_surat_keluar/filter') ?>" method="post" target="_blank">
+                                    <div class="form-group">
+                                        <input type="hidden" name="nilai_filter" value="2">
+                                        <label>Tahun :</label>
+                                        <label class="ml-3 mb-2">
+                                            <select name="tahun1" class="form-control">
+                                                <?php foreach ($tahun as $row) : ?>
+                                                    <option value="<?php echo $row->Tahun ?>"><?php echo $row->Tahun ?></option>
+
+                                                <?php endforeach ?>
+                                            </select>
+                                        </label><br>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <!-- bulan awal -->
+                                                <label>Bulan Awal :</label>
+                                                <select name="bulan_awal" class="form-control">
+                                                    <option value="1">Januari</option>
+                                                    <option value="2">Februari</option>
+                                                    <option value="3">Maret</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">Mei</option>
+                                                    <option value="6">Juni</option>
+                                                    <option value="7">Juli</option>
+                                                    <option value="8">Agustus</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Desember</option>
+                                                </select>
+                                                <!--  -->
+                                            </div>
+                                            <div class="col">
+                                                <!--  -->
+                                                </label>
+                                                <label>Bulan Akhir :
+                                                </label>
+
+                                                <select name="bulan_akhir" class="form-control">
+                                                    <option value="1">Januari</option>
+                                                    <option value="2">Februari</option>
+                                                    <option value="3">Maret</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">Mei</option>
+                                                    <option value="6">Juni</option>
+                                                    <option value="7">Juli</option>
+                                                    <option value="8">Agustus</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Desember</option>
+                                                </select>
+                                                <!--  -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <button class="btn btn-warning mt-2" type="submit"><i class="fas fa-print"></i> Print</button>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
     </section>
     <!-- content end -->
 
