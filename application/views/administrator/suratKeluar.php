@@ -8,9 +8,9 @@
 						<h1><i class="fas fa-envelope-open"></i> Surat Keluar</h1>
 					</div>
 					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
+						<ol class="breadcrumb float-sm-right bg-light">
 							<li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-							<li class="breadcrumb-item active">Surat Masuk</li>
+							<li class="breadcrumb-item active">Surat Keluar</li>
 						</ol>
 					</div>
 				</div>
@@ -38,7 +38,6 @@
 								<th>Tanggal</th>
 								<th>Instansi</th>
 								<th>No. Surat, Tanggal Surat</th>
-								<th>Macam Surat</th>
 								<th>Perihal</th>
 								<th>Aksi</th>
 							</tr>
@@ -51,15 +50,14 @@
 
 								<tr>
 									<td width="20px"><?php echo $no++; ?></td>
-									<td><?php echo date('d M Y', strtotime($row->created)) ?></td>
+									<td><?php echo format_indo(date('Y-m-d', strtotime($row->created))) ?></td>
 									<td><?php echo $row->nama_instansi ?></td>
-									<td><?php echo $row->no_surat . ', <br>' . $row->tgl_surat = date('d-m-Y', strtotime($row->tgl_surat)); ?></td>
-									<td><?php echo $row->jenis_surat ?></td>
-									<td><?php echo $row->perihal . ', <br>' . $row->ket ?></td>
+									<td><?php echo $row->no_surat . ', <br>' . date('d-m-Y', strtotime($row->tgl_surat)); ?></td>
+									<td><?php echo $row->perihal ?></td>
 
 									<td width="200px" class="text-center">
-										<a href="<?php echo base_url('administrator/Surat_keluar/detail/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-plus"></i> Detail</a>
-										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_keluar/delete/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="<?php echo base_url('administrator/Surat_keluar/detail/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-plus-circle"></i> Detail</a>
+										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_keluar/delete/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>
 

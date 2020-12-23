@@ -7,7 +7,7 @@
                         <h1><i class="fas fa-envelope"></i> Edit Surat Masuk
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_masuk') ?>">Surat Masuk</a></li>
                             <li class="breadcrumb-item active">Edit</li>
@@ -100,8 +100,8 @@
 
 
                             <hr>
-                            <a href="<?php echo base_url() ?>/administrator/surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
+                            <a href="<?php echo base_url() ?>/administrator/surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                         </form>
                     <?php endforeach ?>
 

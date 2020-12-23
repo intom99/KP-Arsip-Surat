@@ -60,7 +60,7 @@ class Surat_keluar extends CI_Controller
             $id_js = $this->input->post('id_js', TRUE);
             $perihal = $this->input->post('perihal', TRUE);
             $ket = $this->input->post('ket', TRUE);
-            $lampiran = $_FILES['lampiran'];
+            $lampiran = $_FILES['lampiran']['name'];
             if ($lampiran = '') {
             } else {
                 $config['upload_path'] = './assets/arsip/surat-keluar';
@@ -71,7 +71,7 @@ class Surat_keluar extends CI_Controller
                 if (!$this->upload->do_upload('lampiran')) {
                     $error = array('error' => $this->upload->display_errors());
                     //$this->load->view('administrator/suratKeluar_add', $error);
-                    redirect('administrator/Surat_keluar/add', $error);
+                    // redirect('administrator/Surat_keluar/add', $error);
 
 
                     die();

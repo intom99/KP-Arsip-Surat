@@ -7,7 +7,7 @@
                         <h1><i class="fas fa-university"></i> Tambah Instansi
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/instansi') ?>">Instansi</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
@@ -35,8 +35,8 @@
                             <input type="text" class="form-control" id="alamat" name="alamat_instansi" placeholder="" required>
                         </div>
                         <hr>
-                        <a href="<?php echo base_url('administrator/instansi') ?>" class="btn btn-secondary mt-2 mr-2" title="kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
                         <button type="submit" class="btn btn-primary mt-2" title="simpan"><i class="fas fa-save"></i> Simpan</button>
+                        <a href="<?php echo base_url('administrator/instansi') ?>" class="btn btn-danger mt-2 ml-2" title="Batal"><i class="fas fa-times"></i> Batal</a>
                     </form>
 
 

@@ -33,8 +33,8 @@
                                 <input type="text" name="jenis_surat" class="form-control" required value="<?php echo $row->jenis_surat ?>">
                             </div>
                             <hr>
-                            <a href="<?php echo base_url('administrator/Jenis_surat') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
+                            <a href="<?php echo base_url('administrator/Jenis_surat') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                         </form>
 
 

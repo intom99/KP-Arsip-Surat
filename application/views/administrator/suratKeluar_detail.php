@@ -8,7 +8,7 @@
                         <h1><i class="fas fa-envelope-open"></i> Detail Surat Keluar</h1>
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Keluar</a></li>
                             <li class="breadcrumb-item active">Detail</li>
@@ -60,7 +60,7 @@
                                     <td width="30px">:</td>
                                     <td><?php
 
-                                        echo $suratKeluar->tgl_surat = date('d M Y', strtotime($suratKeluar->tgl_surat)); ?></td>
+                                        echo format_indo(date('Y-m-d', strtotime($suratKeluar->tgl_surat))); ?></td>
 
                                 </tr>
                                 <tr>
@@ -94,7 +94,7 @@
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Diinput</td>
                                     <td width="30px">:</td>
-                                    <td><?php echo date('d M Y H:i:s', strtotime($suratKeluar->created))  ?></td>
+                                    <td><?php echo format_indo(date('Y-m-d H:i:s', strtotime($suratKeluar->created)))  ?></td>
                                 </tr>
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Diedit</td>
@@ -102,7 +102,7 @@
                                     <td><?php if ($suratKeluar->modified == null) {
                                             echo '-';
                                         } else {
-                                            echo date('d M Y H:i:s', strtotime($suratKeluar->modified));
+                                            echo format_indo(date('Y-m-d H:i:s', strtotime($suratKeluar->modified)));
                                         } ?></td>
                                 </tr>
                             </table>

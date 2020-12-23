@@ -52,9 +52,9 @@
 									<td><?php echo $row->username; ?></td>
 									<td><?php echo $row->level; ?></td>
 									<td><?php echo $row->blokir; ?></td>
-									<td>
-										<a href="<?php echo base_url() ?>administrator/user/update/<?php echo $row->id; ?>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-										<a href="<?php echo base_url() ?>administrator/user/delete/<?php echo $row->id; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+									<td width="200px" class="text-center">
+										<a href="#" class="btn btn-sm btn-primary mr-2"><i class="fa fa-edit"></i> Edit</a>
+										<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Hapus</a>
 
 									</td>
 

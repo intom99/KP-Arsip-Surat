@@ -7,7 +7,7 @@
                         <h1><i class="fas fa-envelope-open"></i> Tambah Surat Keluar
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Keluar</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
@@ -34,7 +34,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label class="font-weight-bold">No Surat</label>
-                                    <input type="text" class="form-control" id="no_surat" name="no_surat" required placeholder="Masukkan No. Surat...">
+                                    <input type="text" class="form-control" id="no_surat" name="no_surat" required placeholder="Masukkan No. Surat">
                                     <?php echo form_error('no_surat', '<small class="text-danger pl-2">', '</small>'); ?>
                                 </div>
                             </div>
@@ -74,11 +74,23 @@
                                     <input type="text" class="form-control" id="perihal" name="perihal" required placeholder="Masukkan Perihal...">
                                     <?php echo form_error('perihal', '<small class="text-danger pl-2">', '</small>'); ?>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Lampiran</label><br>
+
+                                    <input type="file" id="lampiran" name="lampiran" class="form-control" required>
+
+
+                                    <?php //echo $error 
+                                    ?>
+                                </div>
+
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label class="font-weight-bold">Keterangan</label>
-                                    <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan">
+                                    <textarea name="ket" id="ket" class="form-control" placeholder="Masukkan Keterangan" cols="30" rows="5"></textarea>
+                                    <!-- <input type="text"  id="ket" name="ket" > -->
                                     <?php echo form_error('keterangan', '<small class="text-danger pl-2">', '</small>'); ?>
                                 </div>
                             </div>
@@ -86,19 +98,9 @@
 
                         <!-- lampiran atau upload file pdf -->
 
-                        <div class="form-group">
-                            <label class="font-weight-bold">Lampiran</label><br>
-                            <label>
-                                <input type="file" name="lampiran" class="form-control">
-                            </label>
-
-                            <?php echo $error ?>
-                        </div>
-
-
                         <hr>
-                        <a href="<?php echo base_url('/administrator/surat_keluar') ?>" class="btn btn-secondary mt-2 mr-2"><i class="fas fa-chevron-left"></i> Kembali</a>
                         <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
+                        <a href="<?php echo base_url('/administrator/surat_keluar') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                     </form>
 
 

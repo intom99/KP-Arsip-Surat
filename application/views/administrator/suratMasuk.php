@@ -36,6 +36,7 @@
 							<tr>
 								<th>No.</th>
 								<th>Tanggal</th>
+								<th>Instansi</th>
 								<th>No. Surat, Tanggal Surat</th>
 								<th>Perihal</th>
 								<th>Aksi</th>
@@ -49,16 +50,14 @@
 
 								<tr>
 									<td width="20px"><?php echo $no++; ?></td>
-									<td><?php echo date('d M Y', strtotime($row->created)) ?></td>
-
-									<td width="200px"><?php echo $row->no_surat . ',<br> ' . $row->tgl_surat ?></td>
-
-
-									<td><?php echo $row->perihal . ',<br> ' . $row->ket ?></td>
+									<td><?php echo format_indo(date('Y-m-d', strtotime($row->created))) ?></td>
+									<td><?php echo $row->nama_instansi ?></td>
+									<td><?php echo $row->no_surat . ',<br> ' .  date('d-m-Y', strtotime($row->tgl_surat)); ?></td>
+									<td><?php echo $row->perihal ?></td>
 
 
 									<td width="200px" class="text-center">
-										<a href="<?php echo base_url() ?>administrator/surat_masuk/detail/<?php echo $row->id_surat_masuk ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-info"></i> Detail</a>
+										<a href="<?php echo base_url() ?>administrator/surat_masuk/detail/<?php echo $row->id_surat_masuk ?>" class="btn btn-sm btn-success" title="Detail"><i class="fas fa-plus-circle"></i> Detail</a>
 										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_masuk/delete/') . $row->id_surat_masuk ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>

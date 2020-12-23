@@ -120,8 +120,8 @@ class Instansi extends CI_Controller
 	// delete
 	public function delete($id)
 	{
-		$where = array('id' => $id);
-		$this->instansi_model->delete_data($where, 'tb_instansi');
+		$where = array('id_instansi' => $id);
+		$this->M_instansi->delete_data($where, 'tb_instansi');
 
 		$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 						Data Instansi Berhasil Dihapus
