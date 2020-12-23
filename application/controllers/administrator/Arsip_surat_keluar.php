@@ -37,7 +37,8 @@ class Arsip_surat_keluar extends CI_Controller
             $data = array(
                 'title' => 'Laporan',
                 'subtitle' => 'Dari Tanggal : ' . format_indo(date('Y-m-d', strtotime($tgl_awal))) . ' Sampai Tanggal : ' . format_indo(date('Y-m-d', strtotime($tgl_akhir))),
-                'daftarFilter' => $this->M_surat_keluar->filterByTanggal($tgl_awal, $tgl_akhir)
+                'daftarFilter' => $this->M_surat_keluar->filterByTanggal($tgl_awal, $tgl_akhir),
+                //'username' => $this->user_model->tampil_data()
 
             );
             $this->load->view('administrator/printArsip', $data);
@@ -56,8 +57,8 @@ class Arsip_surat_keluar extends CI_Controller
             $data = array(
                 'title' => 'Laporan',
                 'subtitle' => ' Tahun : ' . $tahun2,
-                'daftarFilter' => $this->M_surat_keluar->filterBytahun($tahun2)
-
+                'daftarFilter' => $this->M_surat_keluar->filterBytahun($tahun2),
+                //'username' => $this->user_model->tampil_data()->result()
             );
             $this->load->view('administrator/printArsip', $data);
         }

@@ -12,7 +12,6 @@ class Arsip_surat_masuk extends CI_Controller
     {
         $data = array(
             'title' => 'KSPPS BMT Sehati',
-            // 'arsip_surat_masuk' => $this->M_surat_masuk->tampil()
             'tahun' => $this->M_surat_masuk->getTahun()
         );
         $this->load->view('templates_administrator/header', $data);
