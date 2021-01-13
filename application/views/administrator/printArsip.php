@@ -82,7 +82,10 @@
         <br>
         <br>
         <p class="text-right mr-5 pr-5">
-            <?php echo $this->session->userdata('username'); ?>
+            <?php echo $this->session->userdata('username');
+            //echo $user->nama_karyawan
+
+            ?>
         </p>
     </div>
 

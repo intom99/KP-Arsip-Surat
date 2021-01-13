@@ -32,8 +32,12 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat" class="font-weight-bold">Alamat Instansi</label>
-                            <input type="text" class="form-control" id="alamat" name="alamat_instansi" placeholder="" required>
+                            <!-- <input type="text" class="form-control" id="alamat" name="alamat_instansi" placeholder="" required> -->
+                            <textarea name="alamat_instansi" id="alamat_instansi" class="form-control" placeholder="Masukkan Alamat" cols="30" rows="5"></textarea>
+                            <?php echo form_error('alamat_instansi', '<div class="text-danger small" ml-3>'); ?>
+
                         </div>
+
                         <hr>
                         <button type="submit" class="btn btn-primary mt-2" title="simpan"><i class="fas fa-save"></i> Simpan</button>
                         <a href="<?php echo base_url('administrator/instansi') ?>" class="btn btn-danger mt-2 ml-2" title="Batal"><i class="fas fa-times"></i> Batal</a>

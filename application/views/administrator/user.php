@@ -28,16 +28,17 @@
 			<!-- card of tables -->
 			<div class="card">
 				<div class="card-body">
-					<button type="button" data-toggle="modal" data-target="#formModal" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah </button>
+					<?php echo anchor('administrator/user/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
 					<hr>
 
 					<table class="table table-bordered table-striped" id="dataTable">
 						<thead>
 							<tr>
 								<th>NO</th>
+								<th>NAMA</th>
 								<th>USERNAME</th>
 								<th>LEVEL</th>
-								<th>BLOKIR</th>
+
 								<th>AKSI</th>
 							</tr>
 						</thead>
@@ -49,12 +50,13 @@
 
 								<tr>
 									<td width="20px"><?php echo $no++; ?></td>
+									<td><?php echo $row->nama_karyawan; ?></td>
 									<td><?php echo $row->username; ?></td>
 									<td><?php echo $row->level; ?></td>
-									<td><?php echo $row->blokir; ?></td>
+
 									<td width="200px" class="text-center">
-										<a href="#" class="btn btn-sm btn-primary mr-2"><i class="fa fa-edit"></i> Edit</a>
-										<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="<?php echo base_url() ?>administrator/user/edit/<?php echo $row->id; ?>" class="btn btn-sm btn-primary mr-2" title="Edit"><i class="fa fa-edit"></i> Edit</a>
+										<a onclick="javascript:return confirm('Apakah anda yakin akan menghapus data user ?');" href="<?php echo base_url() ?>administrator/user/delete/<?php echo $row->id; ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 
 									</td>
 

@@ -7,21 +7,25 @@ class Arsip_surat_keluar extends CI_Controller
         parent::__construct();
         $this->load->model('M_surat_keluar');
 
+
         is_logged(); //helper access
     }
 
     public function index()
     {
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            // 'arsip_surat_keluar' => $this->M_surat_keluar->tampil(),
-            'tahun' => $this->M_surat_keluar->getTahun()
-        );
+        if ($this->session->userdata('level') === 'ketua') {
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'tahun' => $this->M_surat_keluar->getTahun()
+            );
 
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/arsipSuratKeluar', $data);
-        $this->load->view('templates_administrator/footer');
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/arsipSuratKeluar', $data);
+            $this->load->view('templates_ketua/footer');
+        } else {
+            redirect('auth');
+        }
     }
 
     public function filter()

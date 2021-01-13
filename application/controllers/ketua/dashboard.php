@@ -12,7 +12,8 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		if ($this->session->userdata('level') === 'admin') {
+
+		if ($this->session->userdata('level') === 'ketua') {
 
 			$sm = $this->M_surat_masuk->count_data();
 			$suratMasuk = $sm->num_rows();
@@ -37,13 +38,12 @@ class Dashboard extends CI_Controller
 				'users' => $users
 			);
 
-
-			$this->load->view('templates_administrator/header', $data);
-			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
 			$this->load->view('administrator/dashboard', $data);
-			$this->load->view('templates_administrator/footer');
+			$this->load->view('templates_ketua/footer');
 		} else {
-			redirect('auth'); //masih salah
+			redirect('auth'); //
 		}
 	}
 }

@@ -44,6 +44,7 @@
             </div>
             <div class="col-auto">
               <i class="fas fa-envelope-open fa-2x text-gray-300"></i>
+
             </div>
           </div>
         </div>

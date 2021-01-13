@@ -7,20 +7,7 @@ class Jenis_surat extends CI_Controller
     {
         parent::__construct();
 
-        if (!isset($this->session->userdata['username'])) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						Anda Belum Login
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button></div>');
-            redirect('auth');
-        }
-    }
-
-    // rule
-    public function _rules()
-    {
-
-        $this->form_validation->set_rules('jenis_surat', 'jenis_surat', 'required', ['required' => 'Nama Instansi Wajib Diisi']);
+        is_logged(); //helper access
     }
 
     public function index()
@@ -107,6 +94,11 @@ class Jenis_surat extends CI_Controller
         redirect('administrator/Jenis_surat');
     }
 
+    public function _rules()
+    {
+
+        $this->form_validation->set_rules('jenis_surat', 'jenis_surat', 'required', ['required' => 'Nama Instansi Wajib Diisi']);
+    }
 
     // Hapus
     public function delete($id_js)

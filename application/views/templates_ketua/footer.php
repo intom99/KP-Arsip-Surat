@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="sticky-footer mt-5">
+<footer class="fixed-bottom">
   <div class="container">
     <div class="copyright text-center my-auto">
       <span>&copy; KSPPS BMT Sehati 2021</span>

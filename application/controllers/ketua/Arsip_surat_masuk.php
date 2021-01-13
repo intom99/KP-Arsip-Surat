@@ -1,27 +1,29 @@
 <?php
 
-class Arsip_surat_keluar extends CI_Controller
+class Arsip_surat_masuk extends CI_Controller
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_surat_keluar');
+        $this->load->model('M_surat_masuk');
 
         is_logged(); //helper access
     }
 
     public function index()
     {
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            // 'arsip_surat_keluar' => $this->M_surat_keluar->tampil(),
-            'tahun' => $this->M_surat_keluar->getTahun()
-        );
-
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/arsipSuratKeluar', $data);
-        $this->load->view('templates_administrator/footer');
+        if ($this->session->userdata('level') === 'ketua') {
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'tahun' => $this->M_surat_masuk->getTahun()
+            );
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/arsipSuratMasuk', $data);
+            $this->load->view('templates_ketua/footer');
+        } else {
+            redirect('auth');
+        }
     }
 
     public function filter()
@@ -29,19 +31,17 @@ class Arsip_surat_keluar extends CI_Controller
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
         $tahun1 = $this->input->post('tahun1');
-        //$tahun2 = $this->input->post('tahun2');
+        // $tahun2 = $this->input->post('tahun2');
         $bulan_awal = $this->input->post('bulan_awal');
         $bulan_akhir = $this->input->post('bulan_akhir');
         $nilai_filter = $this->input->post('nilai_filter');
 
-
         if ($nilai_filter == 1) {
             $data = array(
                 'title' => 'Laporan',
-                'laporan' => 'Surat Keluar',
+                'laporan' => 'Surat Masuk',
                 'subtitle' => 'Periode : ' . format_indo(date('Y-m-d', strtotime($tgl_awal))) . ' s/d ' . format_indo(date('Y-m-d', strtotime($tgl_akhir))),
-                'daftarFilter' => $this->M_surat_keluar->filterByTanggal($tgl_awal, $tgl_akhir),
-                //'username' => $this->user_model->tampil_data()
+                'daftarFilter' => $this->M_surat_masuk->filterByTanggal($tgl_awal, $tgl_akhir)
 
             );
             $this->load->view('administrator/printArsip', $data);
@@ -103,10 +103,9 @@ class Arsip_surat_keluar extends CI_Controller
 
             $data = array(
                 'title' => 'Laporan',
-                'laporan' => 'Surat Keluar',
-                'subtitle' => 'Periode : ' . $bln_awal . ' s/d ' . $bln_akhir . ' Tahun : ' . $tahun1,
-                'daftarFilter' => $this->M_surat_keluar->filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
-
+                'laporan' => 'Surat Masuk',
+                'subtitle' => 'Periode : ' . $bln_awal . ' s/d ' . $bln_akhir . ' tahun ' . $tahun1,
+                'daftarFilter' => $this->M_surat_masuk->filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
             );
 
 
@@ -116,8 +115,8 @@ class Arsip_surat_keluar extends CI_Controller
         //     $data = array(
         //         'title' => 'Laporan',
         //         'subtitle' => ' Tahun : ' . $tahun2,
-        //         'daftarFilter' => $this->M_surat_keluar->filterBytahun($tahun2),
-        //         //'username' => $this->user_model->tampil_data()->result()
+        //         'daftarFilter' => $this->M_surat_masuk->filterBytahun($tahun2)
+
         //     );
         //     $this->load->view('administrator/printArsip', $data);
         // }

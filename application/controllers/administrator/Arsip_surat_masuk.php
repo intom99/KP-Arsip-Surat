@@ -6,6 +6,8 @@ class Arsip_surat_masuk extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_surat_masuk');
+
+        is_logged(); //helper access
     }
 
     public function index()
