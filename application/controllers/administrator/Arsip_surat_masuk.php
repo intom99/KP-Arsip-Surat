@@ -40,6 +40,10 @@ class Arsip_surat_masuk extends CI_Controller
                 'daftarFilter' => $this->M_surat_masuk->filterByTanggal($tgl_awal, $tgl_akhir)
 
             );
+            $data['user'] = $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_user.id_karyawan', 'left');
+            $data['user'] =    $this->db->get_where('tb_user', ['username' =>
+            $this->session->userdata('username')])->row_array();
+
             $this->load->view('administrator/printArsip', $data);
         } elseif ($nilai_filter == 2) {
 
@@ -103,6 +107,9 @@ class Arsip_surat_masuk extends CI_Controller
                 'subtitle' => 'Periode : ' . $bln_awal . ' s/d ' . $bln_akhir . ' tahun ' . $tahun1,
                 'daftarFilter' => $this->M_surat_masuk->filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
             );
+            $data['user'] = $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_user.id_karyawan', 'left');
+            $data['user'] =    $this->db->get_where('tb_user', ['username' =>
+            $this->session->userdata('username')])->row_array();
 
 
             $this->load->view('administrator/printArsip', $data);

@@ -1,11 +1,11 @@
 <!-- Footer -->
-<footer class="sticky-footer mt-5">
+<!-- <footer class="sticky-footer mt-5">
   <div class="container">
     <div class="copyright text-center my-auto">
       <span>&copy; KSPPS BMT Sehati 2021</span>
     </div>
   </div>
-</footer>
+</footer> -->
 <!-- End of Footer -->
 
 <!-- Bootstrap core JavaScript-->

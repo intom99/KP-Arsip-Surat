@@ -78,15 +78,18 @@
         </table>
 
         <!--  -->
-        <p class="text-right mr-4">Bantul, <?php echo format_indo(date('Y-m-d')) ?></p>
-        <br>
-        <br>
-        <p class="text-right mr-5 pr-5">
-            <?php echo $this->session->userdata('username');
-            //echo $user->nama_karyawan
+        <div class="float-right">
+            <p class="text-center">Bantul, <?php echo format_indo(date('Y-m-d')) ?></p>
+            <br>
+            <br>
+            <p class="text-center">
+                <?php //echo $this->session->userdata('username');
+                echo $user['nama_karyawan']
 
-            ?>
-        </p>
+                ?>
+            </p>
+        </div>
+
     </div>
 
     <script type="text/javascript">

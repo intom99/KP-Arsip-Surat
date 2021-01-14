@@ -38,7 +38,6 @@
 								<th>NAMA</th>
 								<th>USERNAME</th>
 								<th>LEVEL</th>
-
 								<th>AKSI</th>
 							</tr>
 						</thead>

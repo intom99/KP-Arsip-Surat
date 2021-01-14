@@ -41,13 +41,14 @@ class Arsip_surat_keluar extends CI_Controller
                 'laporan' => 'Surat Keluar',
                 'subtitle' => 'Periode : ' . format_indo(date('Y-m-d', strtotime($tgl_awal))) . ' s/d ' . format_indo(date('Y-m-d', strtotime($tgl_akhir))),
                 'daftarFilter' => $this->M_surat_keluar->filterByTanggal($tgl_awal, $tgl_akhir),
-                //'username' => $this->user_model->tampil_data()
-
             );
+            $data['user'] = $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_user.id_karyawan', 'left');
+            $data['user'] =    $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
+
             $this->load->view('administrator/printArsip', $data);
         } elseif ($nilai_filter == 2) {
 
-            // conver $bulan_awal value int to string
+            // convert $bulan_awal value int to string
             if ($bulan_awal == 1) {
                 $bln_awal = "Januari";
             } elseif ($bulan_awal == 2) {
@@ -74,7 +75,7 @@ class Arsip_surat_keluar extends CI_Controller
                 $bln_awal = "Desember";
             }
 
-            // conver $bulan_akhir value int to string
+            // convert $bulan_akhir value int to string
             if ($bulan_akhir == 1) {
                 $bln_akhir = "Januari";
             } elseif ($bulan_akhir == 2) {
@@ -106,9 +107,9 @@ class Arsip_surat_keluar extends CI_Controller
                 'laporan' => 'Surat Keluar',
                 'subtitle' => 'Periode : ' . $bln_awal . ' s/d ' . $bln_akhir . ' Tahun : ' . $tahun1,
                 'daftarFilter' => $this->M_surat_keluar->filterByBulan($tahun1, $bulan_awal, $bulan_akhir)
-
             );
-
+            $data['user'] = $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_user.id_karyawan', 'left');
+            $data['user'] =    $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
 
             $this->load->view('administrator/printArsip', $data);
         }
