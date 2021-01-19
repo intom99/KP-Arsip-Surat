@@ -25,7 +25,7 @@
                 <div class="card-body">
 
 
-                    <form method="post" action="<?php echo base_url('/administrator/instansi/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
+                    <form method="post" action="<?php echo base_url('instansi/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group">
                             <label for="nama" class="font-weight-bold">Nama Instansi</label>
                             <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" placeholder="" required>
@@ -40,7 +40,7 @@
 
                         <hr>
                         <button type="submit" class="btn btn-primary mt-2" title="simpan"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?php echo base_url('administrator/instansi') ?>" class="btn btn-danger mt-2 ml-2" title="Batal"><i class="fas fa-times"></i> Batal</a>
+                        <a href="<?php echo base_url('instansi') ?>" class="btn btn-danger mt-2 ml-2" title="Batal"><i class="fas fa-times"></i> Batal</a>
                     </form>
 
 

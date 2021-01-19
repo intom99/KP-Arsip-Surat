@@ -9,7 +9,7 @@
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
-							<li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
 							<li class="breadcrumb-item active">Jabatan</li>
 						</ol>
 					</div>
@@ -28,7 +28,7 @@
 			<!-- card of tables -->
 			<div class="card">
 				<div class="card-body">
-					<a href="<?php echo base_url() . 'administrator/Jabatan/add/' ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+					<a href="<?php echo base_url() . 'Jabatan/add/' ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
 					<hr>
 
 					<table class="table table-bordered table-striped" id="dataTable">
@@ -50,8 +50,8 @@
 									<td><?php echo $row->nama_jabatan; ?></td>
 									<td width="200px" class="text-center">
 
-										<a href="<?php echo base_url() ?>administrator/jabatan/edit/<?php echo $row->id_jabatan; ?>" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit"></i> Edit</a>
-										<a onclick="javascript: return confirm('Apakah anda yakin akan menghapus data jabatan ?');" href="<?php echo base_url() ?>administrator/jabatan/delete/<?php echo $row->id_jabatan; ?>" class=" btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="<?php echo base_url() ?>jabatan/edit/<?php echo $row->id_jabatan; ?>" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit"></i> Edit</a>
+										<a onclick="javascript: return confirm('Apakah anda yakin akan menghapus data jabatan ?');" href="<?php echo base_url() ?>jabatan/delete/<?php echo $row->id_jabatan; ?>" class=" btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 
 								</tr>

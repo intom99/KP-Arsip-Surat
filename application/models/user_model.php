@@ -32,7 +32,7 @@ class User_model extends CI_Model
 	//edit
 	public function edit_data($where, $table)
 	{
-		//$this->db->join('tb_user', 'tb_jabatan.id_jabatan = tb_karyawan.id_jabatan', 'left');
+		$this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_user.id_karyawan', 'left');
 		return $this->db->get_where($table, $where);
 	}
 

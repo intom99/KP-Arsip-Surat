@@ -9,7 +9,7 @@
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
-							<li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
 							<li class="breadcrumb-item active">Surat Keluar</li>
 						</ol>
 					</div>
@@ -28,7 +28,7 @@
 			<!-- card of tables -->
 			<div class="card">
 				<div class="card-body">
-					<?php echo anchor('administrator/Surat_keluar/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
+					<?php echo anchor('Surat_keluar/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
 					<hr>
 
 					<table class="table table-bordered table-striped" id="dataTable">
@@ -56,8 +56,8 @@
 									<td><?php echo $row->perihal ?></td>
 
 									<td width="200px" class="text-center">
-										<a href="<?php echo base_url('administrator/Surat_keluar/detail/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-plus-circle"></i> Detail</a>
-										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('administrator/Surat_keluar/delete/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="<?php echo base_url('Surat_keluar/detail/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-success" title="Detail"><i class="fa fa-plus-circle"></i> Detail</a>
+										<a onclick="javascript:return confirm('apakah anda yakin akan dihapus ?');" href="<?php echo base_url('Surat_keluar/delete/') . $row->id_surat_keluar ?>" class="btn btn-sm btn-danger ml-2" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>
 

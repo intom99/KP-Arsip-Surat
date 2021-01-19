@@ -25,7 +25,7 @@
 				<div class="card-body">
 
 
-					<form method="post" action="<?php echo base_url('administrator/karyawan/input') ?>" class="ml-4 mr-4 mt-3 mb-3">
+					<form method="post" action="<?php echo base_url('karyawan/input') ?>" class="ml-4 mr-4 mt-3 mb-3">
 
 						<div class="form-group">
 							<label class="font-weight-bold">Nama Karyawan</label>

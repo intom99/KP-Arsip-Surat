@@ -9,7 +9,7 @@
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
-							<li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
 							<li class="breadcrumb-item active">Users</li>
 						</ol>
 					</div>
@@ -28,7 +28,7 @@
 			<!-- card of tables -->
 			<div class="card">
 				<div class="card-body">
-					<?php echo anchor('administrator/user/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
+					<?php echo anchor('user/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
 					<hr>
 
 					<table class="table table-bordered table-striped" id="dataTable">
@@ -38,6 +38,7 @@
 								<th>NAMA</th>
 								<th>USERNAME</th>
 								<th>LEVEL</th>
+
 								<th>AKSI</th>
 							</tr>
 						</thead>
@@ -54,8 +55,8 @@
 									<td><?php echo $row->level; ?></td>
 
 									<td width="200px" class="text-center">
-										<a href="<?php echo base_url() ?>administrator/user/edit/<?php echo $row->id; ?>" class="btn btn-sm btn-primary mr-2" title="Edit"><i class="fa fa-edit"></i> Edit</a>
-										<a onclick="javascript:return confirm('Apakah anda yakin akan menghapus data user ?');" href="<?php echo base_url() ?>administrator/user/delete/<?php echo $row->id; ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="<?php echo base_url() ?>user/edit/<?php echo $row->id; ?>" class="btn btn-sm btn-primary mr-2" title="Edit"><i class="fa fa-edit"></i> Edit</a>
+										<a onclick="javascript:return confirm('Apakah anda yakin akan menghapus data user ?');" href="<?php echo base_url() ?>user/delete/<?php echo $row->id; ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
 
 									</td>
 

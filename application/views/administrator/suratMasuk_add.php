@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_masuk') ?>">Surat Masuk</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('surat_masuk') ?>">Surat Masuk</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
                         </ol>
                     </div>
@@ -24,7 +24,7 @@
 
                 <div class="card-body">
 
-                    <form action="<?php echo base_url('administrator/surat_masuk/input') ?>" method="post" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
+                    <form action="<?php echo base_url('surat_masuk/input') ?>" method="post" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
 
                         <div class="form-group text-right">
                             <label class="font-weight-bold text-center">Tanggal Hari Ini :</label><span> <?php echo format_indo(date('Y-m-d H:i:s')); ?></span>
@@ -87,7 +87,7 @@
                                     <label class="font-weight-bold">Keterangan</label>
                                     <textarea name="ket" id="ket" class="form-control" placeholder="Masukkan Keterangan" cols="30" rows="5"></textarea>
                                     <!-- <input type="text" id="ket" name="ket"> -->
-                                    <?php echo form_error('keterangan', '<small class="text-danger pl-2">', '</small>'); ?>
+                                    <?php echo form_error('ket', '<small class="text-danger pl-2">', '</small>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -95,12 +95,9 @@
 
                         <hr>
                         <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?php echo base_url('/administrator/surat_masuk') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+                        <a href="<?php echo base_url('surat_masuk') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
 
                     </form>
-
-
-
 
                 </div>
             </div>

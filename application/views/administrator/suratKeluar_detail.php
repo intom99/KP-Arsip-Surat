@@ -29,8 +29,8 @@
             <div class="card">
 
                 <div class="card-body">
-                    <a href="<?php echo base_url('administrator/Surat_keluar/') ?>" class="btn btn-secondary" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
-                    <a href="<?php echo base_url('administrator/Surat_keluar/edit/') . $suratKeluar->id_surat_keluar ?>" class="btn btn-primary" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="<?php echo base_url('Surat_keluar/') ?>" class="btn btn-secondary" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
+                    <a href="<?php echo base_url('Surat_keluar/edit/') . $suratKeluar->id_surat_keluar ?>" class="btn btn-primary" title="Edit"><i class="fas fa-edit"></i> Edit</a>
 
                     <hr>
                     <!--  -->

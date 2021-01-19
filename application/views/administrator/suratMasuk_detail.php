@@ -28,8 +28,8 @@
             <div class="card">
 
                 <div class="card-body">
-                    <a href="<?php echo base_url() ?>administrator/surat_masuk/" class="btn btn-secondary" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
-                    <a href="<?php echo base_url() ?>administrator/surat_masuk/edit/<?php echo $suratMasuk->id_surat_masuk ?>" class="btn btn-primary ml-2" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="<?php echo base_url() ?>surat_masuk/" class="btn btn-secondary" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
+                    <a href="<?php echo base_url() ?>surat_masuk/edit/<?php echo $suratMasuk->id_surat_masuk ?>" class="btn btn-primary ml-2" title="Edit"><i class="fas fa-edit"></i> Edit</a>
                     <hr>
                     <!--  -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">

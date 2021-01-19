@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item active">Jenis Surat</li>
                         </ol>
                     </div>
@@ -24,7 +24,7 @@
             <!-- card of tables -->
             <div class="card">
                 <div class="card-body">
-                    <a href="<?php echo base_url() . 'administrator/Jenis_surat/add/' ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                    <a href="<?php echo base_url() . 'Jenis_surat/add/' ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
 
                     <hr>
 
@@ -48,8 +48,8 @@
 
 
                                     <td width="200px" class="text-center">
-                                        <a href="<?php echo base_url() ?>administrator/jenis_surat/edit/<?php echo $row->id_js; ?>" class="btn btn-sm btn-primary mr-2" title="Edit"><i class="fa fa-edit"></i> Edit</a>
-                                        <a onclick="javascript: return confirm('Apakah anda yakin akan menghapus data jenis surat ?');" href="<?php echo base_url() ?>administrator/jenis_surat/delete/<?php echo $row->id_js; ?>" class=" btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                        <a href="<?php echo base_url() ?>jenis_surat/edit/<?php echo $row->id_js; ?>" class="btn btn-sm btn-primary mr-2" title="Edit"><i class="fa fa-edit"></i> Edit</a>
+                                        <a onclick="javascript: return confirm('Apakah anda yakin akan menghapus data jenis surat ?');" href="<?php echo base_url() ?>jenis_surat/delete/<?php echo $row->id_js; ?>" class=" btn btn-sm btn-danger" title="Hapus"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
 
                                 </tr>

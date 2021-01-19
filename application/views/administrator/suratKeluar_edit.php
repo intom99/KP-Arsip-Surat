@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_keluar') ?>">Surat Keluar</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('surat_keluar') ?>">Surat Keluar</a></li>
                             <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     <?php foreach ($suratKeluar as $rows) : ?>
-                        <form method="post" action="<?php echo base_url('/administrator/surat_keluar/update'); ?>" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
+                        <form method="post" action="<?php echo base_url('surat_keluar/update'); ?>" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
 
                             <hr>
                             <div class="row">
@@ -101,7 +101,7 @@
 
                             <hr>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
-                            <a href="<?php echo base_url() ?>/administrator/surat_keluar/detail/<?php echo $rows->id_surat_keluar ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+                            <a href="<?php echo base_url() ?>surat_keluar/detail/<?php echo $rows->id_surat_keluar ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                         </form>
                     <?php endforeach ?>
 

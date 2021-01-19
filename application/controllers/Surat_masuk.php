@@ -16,31 +16,46 @@ class Surat_masuk extends CI_Controller
 
 	public function index()
 	{
-		$data = array(
-			'title' => 'KSPPS BMT Sehati',
-			'suratMasuk' => $this->M_surat_masuk->tampil()
+		if ($this->session->userdata['level'] == 'admin') {
+			$data = array(
+				'title' => 'KSPPS BMT Sehati',
+				'suratMasuk' => $this->M_surat_masuk->tampil()
+			);
 
-		);
-
-		$this->load->view('templates_administrator/header', $data);
-		$this->load->view('templates_administrator/sidebar');
-		$this->load->view('administrator/suratMasuk', $data);
-		$this->load->view('templates_administrator/footer');
+			$this->load->view('templates_administrator/header', $data);
+			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('administrator/suratMasuk', $data);
+			$this->load->view('templates_administrator/footer');
+		} else {
+			$data['title'] = 'KSPPS BMT Sehati';
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
+			$this->load->view('administrator/404_page');
+			$this->load->view('templates_ketua/footer');
+		}
 	}
 
 	public function add()
 	{
-		$data = array(
-			'title' => 'KSPPS BMT Sehati',
-			'suratMasuk' => $this->M_surat_masuk->tampil(),
-			'instansi' => $this->M_instansi->tampil(),
-			'jenis_surat' => $this->M_jenis_surat->tampil(),
+		if ($this->session->userdata['level'] == 'admin') {
+			$data = array(
+				'title' => 'KSPPS BMT Sehati',
+				'suratMasuk' => $this->M_surat_masuk->tampil(),
+				'instansi' => $this->M_instansi->tampil(),
+				'jenis_surat' => $this->M_jenis_surat->tampil(),
 
-		);
-		$this->load->view('templates_administrator/header', $data);
-		$this->load->view('templates_administrator/sidebar');
-		$this->load->view('administrator/suratMasuk_add', $data);
-		$this->load->view('templates_administrator/footer');
+			);
+			$this->load->view('templates_administrator/header', $data);
+			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('administrator/suratMasuk_add', $data);
+			$this->load->view('templates_administrator/footer');
+		} else {
+			$data['title'] = 'KSPPS BMT Sehati';
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
+			$this->load->view('administrator/404_page');
+			$this->load->view('templates_ketua/footer');
+		}
 	}
 
 	// input
@@ -91,27 +106,35 @@ class Surat_masuk extends CI_Controller
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
-			redirect('administrator/Surat_masuk');
+			redirect('Surat_masuk');
 		}
 	}
 
 	//fungsi edit
 	public function edit($id)
 	{
-		$this->load->model('M_surat_masuk');
-		$where = array('id_surat_masuk' => $id);
+		if ($this->session->userdata['level'] == 'admin') {
+			$this->load->model('M_surat_masuk');
+			$where = array('id_surat_masuk' => $id);
 
-		$data = array(
-			'title' => 'KSPPS BMT Sehati',
-			'instansi' => $this->M_instansi->tampil(),
-			'jenis_surat' => $this->M_jenis_surat->tampil(),
-			'suratMasuk' => $this->M_surat_masuk->edit_data($where)->result()
-		);
+			$data = array(
+				'title' => 'KSPPS BMT Sehati',
+				'instansi' => $this->M_instansi->tampil(),
+				'jenis_surat' => $this->M_jenis_surat->tampil(),
+				'suratMasuk' => $this->M_surat_masuk->edit_data($where)->result()
+			);
 
-		$this->load->view('templates_administrator/header', $data);
-		$this->load->view('templates_administrator/sidebar');
-		$this->load->view('administrator/suratMasuk_edit', $data);
-		$this->load->view('templates_administrator/footer');
+			$this->load->view('templates_administrator/header', $data);
+			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('administrator/suratMasuk_edit', $data);
+			$this->load->view('templates_administrator/footer');
+		} else {
+			$data['title'] = 'KSPPS BMT Sehati';
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
+			$this->load->view('administrator/404_page');
+			$this->load->view('templates_ketua/footer');
+		}
 	}
 
 	// Edit Aksi
@@ -164,14 +187,13 @@ class Surat_masuk extends CI_Controller
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
-			redirect('administrator/Surat_masuk');
+			redirect('Surat_masuk');
 		}
 	}
 
 	// rule
 	public function _rules()
 	{
-
 		$this->form_validation->set_rules('no_surat', 'no_surat', 'required', ['required' => 'No Surat Wajib Diisi']);
 		$this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
 		$this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
@@ -181,30 +203,45 @@ class Surat_masuk extends CI_Controller
 	// Hapus data
 	public function delete($id)
 	{
-		$where = array('id_surat_masuk' => $id);
-		$this->M_surat_masuk->delete_data($where, 'tb_surat_masuk');
+		if ($this->session->userdata['level'] == 'admin') {
+			$where = array('id_surat_masuk' => $id);
+			$this->M_surat_masuk->delete_data($where, 'tb_surat_masuk');
 
-		$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						Data Surat Masuk Berhasil dihapus
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button></div>');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							Data Surat Masuk Berhasil dihapus
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button></div>');
 
-		redirect('administrator/Surat_masuk');
+			redirect('Surat_masuk');
+		} else {
+			$data['title'] = 'KSPPS BMT Sehati';
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
+			$this->load->view('administrator/404_page');
+			$this->load->view('templates_ketua/footer');
+		}
 	}
 
 	//Detail
 	public function detail($id)
 	{
-		$this->load->model('M_surat_masuk');
-		$data = array(
-			'title' => 'KSPPS BMT Sehati',
-			'suratMasuk' => $this->M_surat_masuk->detail_data($id)
-		);
+		if ($this->session->userdata['level'] == 'admin') {
+			$this->load->model('M_surat_masuk');
+			$data = array(
+				'title' => 'KSPPS BMT Sehati',
+				'suratMasuk' => $this->M_surat_masuk->detail_data($id)
+			);
 
-
-		$this->load->view('templates_administrator/header', $data);
-		$this->load->view('templates_administrator/sidebar');
-		$this->load->view('administrator/suratMasuk_detail', $data);
-		$this->load->view('templates_administrator/footer');
+			$this->load->view('templates_administrator/header', $data);
+			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('administrator/suratMasuk_detail', $data);
+			$this->load->view('templates_administrator/footer');
+		} else {
+			$data['title'] = 'KSPPS BMT Sehati';
+			$this->load->view('templates_ketua/header', $data);
+			$this->load->view('templates_ketua/sidebar');
+			$this->load->view('administrator/404_page');
+			$this->load->view('templates_ketua/footer');
+		}
 	}
 }

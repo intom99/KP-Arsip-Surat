@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/surat_masuk') ?>">Surat Masuk</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('surat_masuk') ?>">Surat Masuk</a></li>
                             <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     <?php foreach ($suratMasuk as $rows) : ?>
-                        <form method="post" action="<?php echo base_url('/administrator/surat_masuk/update'); ?>" enctype="multipart/form-data" class="ml-4 mr-4 mt-3 mb-3">
+                        <form method="post" action="<?php echo base_url('surat_masuk/update'); ?>" enctype="multipart/form-data" class="ml-4 mr-4 mt-3 mb-3">
 
                             <hr>
                             <div class="row">
@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                         <label class="font-weight-bold">Keterangan</label>
                                         <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan" value="<?php echo $rows->ket ?>">
-                                        <?php echo form_error('keterangan', '<small class="text-danger pl-2">', '</small>'); ?>
+                                        <?php echo form_error('ket', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
 
                             <hr>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
-                            <a href="<?php echo base_url() ?>/administrator/surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+                            <a href="<?php echo base_url() ?>surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                         </form>
                     <?php endforeach ?>
 

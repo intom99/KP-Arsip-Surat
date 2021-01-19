@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/user') ?>">User</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('user') ?>">User</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
                         </ol>
                     </div>
@@ -24,7 +24,7 @@
 
                 <div class="card-body">
 
-                    <form action="<?php echo base_url('administrator/user/input') ?>" method="post" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
+                    <form action="<?php echo base_url('user/input') ?>" method="post" class="ml-4 mr-4 mt-3 mb-3" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col">
@@ -70,7 +70,7 @@
 
                         <hr>
                         <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?php echo base_url('/administrator/user') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+                        <a href="<?php echo base_url('user') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
 
                     </form>
 

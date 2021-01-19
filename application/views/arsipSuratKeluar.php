@@ -5,12 +5,12 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-folder"></i> Laporan Surat Masuk</h1>
+                        <h1><i class="fas fa-folder-open"></i> Laporan Surat Keluar</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Laporan Surat Masuk</li>
+                            <li class="breadcrumb-item active"> Laporan Surat Keluar</li>
                         </ol>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                                     <input type="radio" id="showform" value="bulan" name="showform" onchange="showhideForm(this.value);" /> Bulan
                                 </label>
                             </form>
-                            <a class="btn btn-primary mt-5" href="<?php echo base_url('administrator/Arsip_surat_masuk') ?>" onclick="document.getElementById('form_[form_key]').reset();"><i class="fas fa-sync"></i> Reset</a>
+                            <a class="btn btn-primary mt-5" href="<?php echo base_url('Arsip_surat_keluar') ?>" onclick="document.getElementById('form_[form_key]').reset();"><i class="fas fa-sync"></i> Reset</a>
                         </div>
                     </div>
 
@@ -57,16 +57,21 @@
                             <div class="card-body">
                                 <h5>Form Filter Tanggal</h5>
                                 <hr>
-                                <form action="<?php echo base_url('administrator/Arsip_surat_masuk/filter') ?>" method="post" target="_blank">
+                                <form action="<?php echo base_url('Arsip_surat_keluar/print') ?>" method="post" target="_blank">
                                     <div class="form-group">
                                         <input type="hidden" name="nilai_filter" value="1">
                                         <label>Tanggal Awal :</label>
                                         <label class="ml-2">
+                                            <!-- <input type="date" name="tgl_awal" id="datepicker" class="form-control" required> -->
                                             <input type="date" name="tgl_awal" class="form-control" required>
                                         </label>
+
+
                                         <label class="ml-5">Tanggal Akhir :</label>
-                                        <label class="ml-2"><input type="date" name="tgl_akhir" class="form-control" required>
-                                        </label><br>
+                                        <label class="ml-2">
+                                            <input type="date" name="tgl_akhir" class="form-control" required>
+                                        </label>
+                                        <br>
                                     </div>
                                     <button type="submit" class="btn btn-warning mt-3"><i class="fas fa-print"></i> Print</button>
                                 </form>
@@ -80,12 +85,12 @@
                             <div class="card-body">
                                 <h5>Form Filter Bulan</h5>
                                 <hr>
-                                <form action="<?php echo base_url('administrator/Arsip_surat_masuk/filter') ?>" method="post" target="_blank">
+                                <form action="<?php echo base_url('Arsip_surat_keluar/print') ?>" method="post" target="_blank">
                                     <div class="form-group">
                                         <input type="hidden" name="nilai_filter" value="2">
                                         <label>Tahun :</label>
                                         <label class="ml-3 mb-2">
-                                            <select name="tahun1" class="form-control" size="1">
+                                            <select name="tahun1" class="form-control">
                                                 <?php foreach ($tahun as $row) : ?>
                                                     <option value="<?php echo $row->Tahun ?>"><?php echo $row->Tahun ?></option>
 

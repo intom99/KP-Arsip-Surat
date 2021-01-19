@@ -6,39 +6,57 @@ class Surat_keluar extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_surat_keluar');
-
         is_logged(); //helper access
     }
 
 
     public function index()
     {
+        if ($this->session->userdata['level'] == 'admin') {
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'suratKeluar' => $this->M_surat_keluar->tampil()
+            );
 
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            'suratKeluar' => $this->M_surat_keluar->tampil()
-        );
-
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/suratKeluar', $data);
-        $this->load->view('templates_administrator/footer');
+            $this->load->view('templates_administrator/header', $data);
+            $this->load->view('templates_administrator/sidebar');
+            $this->load->view('administrator/suratKeluar', $data);
+            $this->load->view('templates_administrator/footer');
+        } else {
+            $data['title'] = 'KSPPS BMT Sehati';
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/404_page');
+            $this->load->view('templates_ketua/footer');
+        }
     }
 
     // tambah
     public function add()
     {
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            'suratKeluar' => $this->M_surat_keluar->tampil(),
-            'instansi' => $this->M_instansi->tampil(),
-            'jenis_surat' => $this->M_jenis_surat->tampil()
-        );
+        if ($this->session->userdata['level'] == 'admin') {
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'suratKeluar' => $this->M_surat_keluar->tampil(),
+                'instansi' => $this->M_instansi->tampil(),
+                'jenis_surat' => $this->M_jenis_surat->tampil()
+            );
 
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/suratKeluar_add', array('error' => '*format file harus PDF', $data));
-        $this->load->view('templates_administrator/footer');
+            $this->load->view('templates_administrator/header', $data);
+            $this->load->view('templates_administrator/sidebar');
+            $this->load->view('administrator/suratKeluar_add', $data);
+            $this->load->view('templates_administrator/footer');
+        } else {
+            $data['title'] = 'KSPPS BMT Sehati';
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/404_page');
+            $this->load->view('templates_ketua/footer');
+        }
+    }
+    public function uploadGagal()
+    {
+        $this->load->view('administrator/suratKeluar_add', array('error' => '*format file harus PDF'));
     }
 
     public function input()
@@ -64,16 +82,11 @@ class Surat_keluar extends CI_Controller
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('lampiran')) {
                     $error = array('error' => $this->upload->display_errors());
-                    //$this->load->view('administrator/suratKeluar_add', $error);
-                    // redirect('administrator/Surat_keluar/add', $error);
-
-
-                    die();
+                    $this->load->view('administrator/suratKeluar_add', $error);
                 } else {
                     $lampiran = $this->upload->data('file_name');
                 }
             }
-
 
             $data = array(
                 'no_surat' => $no_surat,
@@ -92,25 +105,33 @@ class Surat_keluar extends CI_Controller
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
-            redirect('administrator/Surat_keluar');
+            redirect('Surat_keluar');
         }
     }
 
     // edit
     public function edit($id)
     {
-        $where = array('id_surat_keluar' => $id);
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            'suratKeluar' => $this->M_surat_keluar->edit_data($where)->result(),
-            'instansi' => $this->M_instansi->tampil(),
-            'jenis_surat' => $this->M_jenis_surat->tampil()
-        );
+        if ($this->session->userdata['level'] == 'admin') {
+            $where = array('id_surat_keluar' => $id);
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'suratKeluar' => $this->M_surat_keluar->edit_data($where)->result(),
+                'instansi' => $this->M_instansi->tampil(),
+                'jenis_surat' => $this->M_jenis_surat->tampil()
+            );
 
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/suratKeluar_edit', $data);
-        $this->load->view('templates_administrator/footer');
+            $this->load->view('templates_administrator/header', $data);
+            $this->load->view('templates_administrator/sidebar');
+            $this->load->view('administrator/suratKeluar_edit', $data);
+            $this->load->view('templates_administrator/footer');
+        } else {
+            $data['title'] = 'KSPPS BMT Sehati';
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/404_page');
+            $this->load->view('templates_ketua/footer');
+        }
     }
 
     // update data
@@ -163,14 +184,13 @@ class Surat_keluar extends CI_Controller
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
-            redirect('administrator/Surat_keluar');
+            redirect('Surat_keluar');
         }
     }
 
     // rule
     public function _rules()
     {
-
         $this->form_validation->set_rules('no_surat', 'no_surat', 'required', ['required' => 'No Surat Wajib Diisi']);
         $this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
         $this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
@@ -181,30 +201,44 @@ class Surat_keluar extends CI_Controller
     //detail
     public function detail($id)
     {
-        $this->load->model('M_surat_keluar');
+        if ($this->session->userdata['level'] == 'admin') {
+            $this->load->model('M_surat_keluar');
+            $data = array(
+                'title' => 'KSPPS BMT Sehati',
+                'suratKeluar' => $this->M_surat_keluar->detail_data($id)
+            );
 
-
-        $data = array(
-            'title' => 'KSPPS BMT Sehati',
-            'suratKeluar' => $this->M_surat_keluar->detail_data($id)
-        );
-
-        $this->load->view('templates_administrator/header', $data);
-        $this->load->view('templates_administrator/sidebar');
-        $this->load->view('administrator/suratKeluar_detail', $data);
-        $this->load->view('templates_administrator/footer');
+            $this->load->view('templates_administrator/header', $data);
+            $this->load->view('templates_administrator/sidebar');
+            $this->load->view('administrator/suratKeluar_detail', $data);
+            $this->load->view('templates_administrator/footer');
+        } else {
+            $data['title'] = 'KSPPS BMT Sehati';
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/404_page');
+            $this->load->view('templates_ketua/footer');
+        }
     }
 
     // hapus data
     public function delete($id)
     {
-        $where = array('id_surat_keluar' => $id);
-        $this->M_surat_keluar->delete_data($where, 'tb_surat_keluar');
+        if ($this->session->userdata['level'] == 'admin') {
+            $where = array('id_surat_keluar' => $id);
+            $this->M_surat_keluar->delete_data($where, 'tb_surat_keluar');
 
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						Data Surat Keluar Berhasil Dihapus
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button></div>');
-        redirect('administrator/Surat_keluar');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Data Surat Keluar Berhasil Dihapus
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button></div>');
+            redirect('Surat_keluar');
+        } else {
+            $data['title'] = 'KSPPS BMT Sehati';
+            $this->load->view('templates_ketua/header', $data);
+            $this->load->view('templates_ketua/sidebar');
+            $this->load->view('administrator/404_page');
+            $this->load->view('templates_ketua/footer');
+        }
     }
 }

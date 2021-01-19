@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('administrator/jabatan') ?>">Jabatan</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('jabatan') ?>">Jabatan</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="card-body">
 
 
-                    <form method="post" action="<?php echo base_url('/administrator/Jabatan/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
+                    <form method="post" action="<?php echo base_url('Jabatan/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group">
                             <label class="font-weight-bold">Jabatan</label>
                             <input type="text" class="form-control" id="nama_jabatan" name="nama_jabatan" placeholder="" required>
@@ -33,7 +33,7 @@
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?php echo base_url('administrator/jabatan') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+                        <a href="<?php echo base_url('jabatan') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
                     </form>
 
 

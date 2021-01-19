@@ -1,6 +1,5 @@
 <?php
 
-
 function is_logged()
 {
 
