@@ -77,7 +77,7 @@
                                 <!-- lampiran atau upload file pdf -->
 
                                 <div class="form-group">
-                                    <label class="font-weight-bold">Lampiran</label><br>
+                                    <label class="font-weight-bold">Lampiran</label><small class="text-danger"> *harus format .pdf</small>
 
                                     <input type="file" id="lampiran" name="lampiran" class="form-control" required>
                                 </div>

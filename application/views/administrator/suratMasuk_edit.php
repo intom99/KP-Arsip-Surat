@@ -77,28 +77,25 @@
                                         <input type="text" class="form-control" id="perihal" name="perihal" required value="<?php echo $rows->perihal ?>">
                                         <?php echo form_error('perihal', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
+
+                                    <!-- lampiran atau upload file pdf -->
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Lampiran</label>
+                                        <small class="text-danger">*harus format .pdf</small><br>
+                                        <label><input type="file" name="lampiran" class="form-control"></label>
+                                        <label class="ml-3"><i class="fas fa-file-pdf mr-2"></i><?php echo $rows->lampiran ?></label>
+
+                                    </div>
                                 </div>
+
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="font-weight-bold">Keterangan</label>
-                                        <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan" value="<?php echo $rows->ket ?>">
+                                        <textarea class="form-control" name="ket" id="ket" cols="30" rows="5"><?php echo $rows->ket ?></textarea>
                                         <?php echo form_error('ket', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- lampiran atau upload file pdf -->
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Lampiran</label>
-
-                                <label>
-                                    <input type="file" name="lampiran" class="form-control"></label>
-                                <label class="ml-3"><i class="fas fa-file-pdf mr-2"></i><?php echo $rows->lampiran ?></label>
-
-                            </div>
-
-
                             <hr>
                             <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Update</button>
                             <a href="<?php echo base_url() ?>surat_masuk/detail/<?php echo $rows->id_surat_masuk ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
