@@ -1,11 +1,11 @@
 <!-- Footer -->
-<footer class="fixed-bottom">
+<!-- <footer class="fixed-bottom">
   <div class="container">
     <div class="copyright text-center my-auto">
       <span>&copy; KSPPS BMT Sehati 2021</span>
     </div>
   </div>
-</footer>
+</footer> -->
 <!-- End of Footer -->
 
 <!-- Bootstrap core JavaScript-->
