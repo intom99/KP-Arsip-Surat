@@ -49,7 +49,7 @@
 						<hr>
 
 						<button type="submit" class="btn btn-primary mt-2"><i class="fas fa-save"></i> Simpan</button>
-						<a href="<?php echo base_url('administrator/karyawan') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
+						<a href="<?php echo base_url('karyawan') ?>" class="btn btn-danger mt-2 ml-2"><i class="fas fa-times"></i> Batal</a>
 
 					</form>
 

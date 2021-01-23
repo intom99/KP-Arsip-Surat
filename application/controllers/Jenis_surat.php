@@ -68,7 +68,7 @@ class Jenis_surat extends CI_Controller
             $this->M_jenis_surat->input_data($data);
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Jenis Surat Berhasil ditambahkan
+            <b><i class="fas fa-check"></i> Sukses! </b>Data jenis surat berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -111,7 +111,7 @@ class Jenis_surat extends CI_Controller
         $this->M_jenis_surat->update_data($where, $data, 'tb_jenis_surat');
 
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Jenis Surat Berhasil Diupdate
+        <b><i class="fas fa-check"></i> Sukses! </b>Data jenis surat berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
         redirect('Jenis_surat');
@@ -130,8 +130,8 @@ class Jenis_surat extends CI_Controller
                 'id_js' => $id_js
             );
             $this->M_jenis_surat->delete_data($where, 'tb_jenis_surat');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Data Jenis Surat Berhasil Dihapus
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <b><i class="fas fa-check"></i> Sukses! </b>Data jenis surat berhasil dihapus
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button></div>');
             redirect('Jenis_surat');

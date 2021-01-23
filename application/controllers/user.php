@@ -81,7 +81,7 @@ class User extends CI_Controller
 			$this->user_model->input_data($data);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data User Berhasil ditambahkan
+			<b><i class="fas fa-check"></i> Sukses! </b>Data user berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -163,7 +163,7 @@ class User extends CI_Controller
 
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data User Berhasil diupdate
+			<b><i class="fas fa-check"></i> Sukses! </b>Data user berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -193,8 +193,8 @@ class User extends CI_Controller
 			);
 			$this->user_model->delete_data($where, 'tb_user');
 
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Data User Berhasil Dihapus
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<b><i class="fas fa-check"></i> Sukses! </b>Data user berhasil dihapus
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button></div>');
 			redirect('user');

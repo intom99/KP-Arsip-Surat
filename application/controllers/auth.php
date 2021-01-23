@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class Auth extends CI_Controller
 {
 
@@ -57,7 +57,7 @@ class Auth extends CI_Controller
 				}
 			} else {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						username atau password salah!!
+				<i class="fas fa-times-circle"></i> username atau password salah!!
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 				redirect('auth');
@@ -72,7 +72,7 @@ class Auth extends CI_Controller
 		//$this->session->sess_destroy();
 		$this->session->set_flashdata(
 			'pesan',
-			'<div class="alert alert-success" role="alert">You have been Logged out </div>'
+			'<div class="alert alert-success" role="alert"><i class="fas fa-times-circle"></i> Kamu berhasil logout </div>'
 		);
 		redirect('auth');
 	}

@@ -54,10 +54,6 @@ class Surat_keluar extends CI_Controller
             $this->load->view('templates_ketua/footer');
         }
     }
-    public function uploadGagal()
-    {
-        $this->load->view('administrator/suratKeluar_add', array('error' => '*format file harus PDF'));
-    }
 
     public function input()
     {
@@ -81,8 +77,12 @@ class Surat_keluar extends CI_Controller
 
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('lampiran')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    $this->load->view('administrator/suratKeluar_add', $error);
+
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<span class="font-weight-bold"><i class="fas fa-times-circle"></i> Gagal!</span> Pastikan file yang diupload bertipe *.pdf
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button></div>');
+                    redirect('Surat_keluar');
                 } else {
                     $lampiran = $this->upload->data('file_name');
                 }
@@ -101,7 +101,7 @@ class Surat_keluar extends CI_Controller
             $this->M_surat_keluar->input_data($data);
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Surat keluar Berhasil ditambahkan
+            <b><i class="fas fa-check"></i> Sukses! </b>Data surat keluar berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -140,7 +140,6 @@ class Surat_keluar extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            //$this->edit();
         } else {
             $id_surat_keluar = $this->input->post('id_surat_keluar', TRUE);
             $no_surat = $this->input->post('no_surat', TRUE);
@@ -161,7 +160,12 @@ class Surat_keluar extends CI_Controller
                     $lampiran = $this->upload->data('file_name');
                     $this->db->set('lampiran', $lampiran);
                 } else {
-                    echo $this->upload->display_errors();
+
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<span class="font-weight-bold"><i class="fas fa-times-circle"></i> Gagal!</span> Pastikan file yang diupload bertipe *.pdf
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button></div>');
+                    redirect('Surat_keluar');
                 }
             }
 
@@ -173,6 +177,7 @@ class Surat_keluar extends CI_Controller
                 'id_js' => $id_js,
                 'perihal' => $perihal,
                 'ket' => $ket,
+                'lampiran' => $lampiran
 
             );
             $where = array('id_surat_keluar' => $id_surat_keluar);
@@ -180,7 +185,7 @@ class Surat_keluar extends CI_Controller
             $this->M_surat_keluar->update_data('tb_surat_keluar', $data, $where);
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Surat keluar Berhasil diupdate
+            <b><i class="fas fa-check"></i> Sukses! </b>Data surat keluar berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -195,7 +200,6 @@ class Surat_keluar extends CI_Controller
         $this->form_validation->set_rules('tgl_surat', 'tgl_surat', 'required', ['required' => 'Tanggal Surat Wajib Diisi']);
         $this->form_validation->set_rules('perihal', 'perihal', 'required', ['required' => 'perihal Wajib Diisi']);
         $this->form_validation->set_rules('ket', 'ket', 'required', ['required' => 'keterangan Wajib Diisi']);
-        //$this->form_validation->set_rules('lampiran', 'lampiran', 'required', ['required' => 'lampiran Wajib Diisi']);
     }
 
     //detail
@@ -228,8 +232,8 @@ class Surat_keluar extends CI_Controller
             $where = array('id_surat_keluar' => $id);
             $this->M_surat_keluar->delete_data($where, 'tb_surat_keluar');
 
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            Data Surat Keluar Berhasil Dihapus
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <b><i class="fas fa-check"></i> Sukses! </b>Data surat keluar berhasil Dihapus
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button></div>');
             redirect('Surat_keluar');

@@ -82,8 +82,11 @@ class Surat_masuk extends CI_Controller
 				$this->load->library('upload', $config);
 				if (!$this->upload->do_upload('lampiran')) {
 
-					echo "Upload Gagal";
-					die();
+					$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<span class="font-weight-bold"><i class="fas fa-times-circle"></i> Gagal!</span> Pastikan file yang diupload bertipe *.pdf
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button></div>');
+					redirect('Surat_masuk');
 				} else {
 					$lampiran = $this->upload->data('file_name');
 				}
@@ -102,7 +105,7 @@ class Surat_masuk extends CI_Controller
 			$this->M_surat_masuk->input_data($data);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Surat Masuk Berhasil ditambahkan
+						<b><i class="fas fa-check"></i> Sukses! </b>Data surat masuk berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -163,7 +166,11 @@ class Surat_masuk extends CI_Controller
 					$lampiran = $this->upload->data('file_name');
 					$this->db->set('lampiran', $lampiran);
 				} else {
-					echo $this->upload->display_errors();
+					$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<span class="font-weight-bold"><i class="fas fa-times-circle"></i> Gagal!</span> Pastikan file yang diupload bertipe *.pdf
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button></div>');
+					redirect('Surat_masuk');
 				}
 			}
 
@@ -183,7 +190,7 @@ class Surat_masuk extends CI_Controller
 			$this->M_surat_masuk->update_data('tb_surat_masuk', $data, $where);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Surat Masuk Berhasil diupdate
+						<b><i class="fas fa-check"></i> Sukses! </b>Data surat masuk berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -207,8 +214,8 @@ class Surat_masuk extends CI_Controller
 			$where = array('id_surat_masuk' => $id);
 			$this->M_surat_masuk->delete_data($where, 'tb_surat_masuk');
 
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Data Surat Masuk Berhasil dihapus
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<b><i class="fas fa-check"></i> Sukses! </b>Data surat masuk berhasil dihapus
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button></div>');
 

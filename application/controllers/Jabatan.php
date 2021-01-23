@@ -70,7 +70,7 @@ class Jabatan extends CI_Controller
 			$this->M_jabatan->input_data($data);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Jabatan Berhasil ditambahkan
+			<b><i class="fas fa-check"></i> Sukses! </b>Data jabatan berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -112,7 +112,7 @@ class Jabatan extends CI_Controller
 		$this->M_jabatan->update_data($where, $data, 'tb_jabatan');
 
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Jabatan Berhasil Diupdate
+		<b><i class="fas fa-check"></i> Sukses! </b>Data jabatan berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 		redirect('jabatan');
@@ -132,8 +132,8 @@ class Jabatan extends CI_Controller
 			$where = array('id_jabatan' => $id_jabatan);
 			$this->M_jabatan->delete_data($where, 'tb_jabatan');
 
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Data Jabatan Berhasil Dihapus
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<b><i class="fas fa-check"></i> Sukses! </b>Data jabatan berhasil dihapus
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button></div>');
 			redirect('jabatan');

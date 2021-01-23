@@ -79,7 +79,7 @@ class Karyawan extends CI_Controller
 			$this->M_karyawan->input_data($data);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Karyawan Berhasil ditambahkan
+			<b><i class="fas fa-check"></i> Sukses! </b>Data karyawan berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -133,7 +133,7 @@ class Karyawan extends CI_Controller
 			$this->M_karyawan->update_data('tb_karyawan', $data, $where);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Karyawan Berhasil diupdate
+			<b><i class="fas fa-check"></i> Sukses! </b>Data karyawan berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -157,8 +157,8 @@ class Karyawan extends CI_Controller
 			);
 			$this->M_karyawan->delete_data($where, 'tb_karyawan');
 
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Data Karyawan Berhasil Dihapus
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<b><i class="fas fa-check"></i> Sukses! </b>Data karyawan berhasil dihapus
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button></div>');
 			redirect('karyawan');

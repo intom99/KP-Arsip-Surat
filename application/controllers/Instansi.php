@@ -74,7 +74,7 @@ class Instansi extends CI_Controller
 			$this->M_instansi->input_data($data);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Instansi Berhasil ditambahkan
+			<b><i class="fas fa-check"></i> Sukses! </b>Data instansi berhasil ditambah
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 
@@ -120,7 +120,7 @@ class Instansi extends CI_Controller
 		$this->M_instansi->update_data($where, $data, 'tb_instansi');
 
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						Data Instansi Berhasil Diupdate
+		<b><i class="fas fa-check"></i> Sukses! </b>Data instansi berhasil diupdate
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 		redirect('instansi');
@@ -141,8 +141,8 @@ class Instansi extends CI_Controller
 			$where = array('id_instansi' => $id);
 			$this->M_instansi->delete_data($where, 'tb_instansi');
 
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						Data Instansi Berhasil Dihapus
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<b><i class="fas fa-check"></i> Sukses! </b>Data instansi berhasil dihapus
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button></div>');
 			redirect('instansi');
