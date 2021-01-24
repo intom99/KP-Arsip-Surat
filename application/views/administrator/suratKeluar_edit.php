@@ -80,7 +80,8 @@
 
                                     <!--  -->
                                     <div class="form-group">
-                                        <label class="font-weight-bold">Lampiran</label><br>
+                                        <label class="font-weight-bold">Lampiran</label>
+                                        <small class="text-danger">*harus format .pdf</small><br>
                                         <label>
                                             <input type="file" name="lampiran" class="form-control"></label>
                                         <label class="ml-3"><i class="fas fa-file-pdf mr-2"></i><?php echo $rows->lampiran ?></label>

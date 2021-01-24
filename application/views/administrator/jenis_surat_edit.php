@@ -7,7 +7,7 @@
                         <h1><i class="fas fa-file"></i> Edit Jenis Surat
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right bg-light">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('jenis_surat') ?>">Jenis Surat</a></li>
                             <li class="breadcrumb-item active">Edit</li>
