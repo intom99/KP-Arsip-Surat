@@ -53,7 +53,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="font-weight-bold">Password <small class="text-secondary">*kosongkan jika tidak diubah</small></label>
-                                        <input type="password" name="password" class="form-control" autocomplete="off">
+                                        <input type="password" id="password" name="password" class="form-control" autocomplete="off">
                                         <?php echo form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                                     </div>
                                 </div>

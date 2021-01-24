@@ -12,7 +12,6 @@ function is_logged()
                     <span aria-hidden="true">&times;</span></button></div>');
         redirect('auth');
     }
-    // else {
 
     //     $role_id = $CI->session->userdata('role_id');
 

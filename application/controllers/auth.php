@@ -45,6 +45,7 @@ class Auth extends CI_Controller
 				foreach ($cek->result() as $ck) {
 					$sess_data['username'] = $ck->username;
 					$sess_data['level'] = $ck->level;
+					$sess_data['id'] = $ck->id;
 
 					$this->session->set_userdata($sess_data);
 				}
@@ -72,7 +73,7 @@ class Auth extends CI_Controller
 		//$this->session->sess_destroy();
 		$this->session->set_flashdata(
 			'pesan',
-			'<div class="alert alert-success" role="alert"><i class="fas fa-times-circle"></i> Kamu berhasil logout </div>'
+			'<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Kamu berhasil logout </div>'
 		);
 		redirect('auth');
 	}
