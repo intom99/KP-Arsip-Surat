@@ -5,7 +5,7 @@
 			<nav aria-label="breadcrumb">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1><i class="fas fa-envelope"></i> Surat Masuk</h1>
+						<h1 class="text-gray-800"><i class="fas fa-envelope"></i> Surat Masuk</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
@@ -29,7 +29,7 @@
 					<?php echo anchor('surat_masuk/add', ' <button class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah </button>'); ?>
 					<hr>
 
-					<table class="table table-bordered table-striped" id="dataTable">
+					<table class="table table-bordered table-striped text-gray-800" id="dataTable">
 						<thead>
 							<tr>
 								<th>No.</th>

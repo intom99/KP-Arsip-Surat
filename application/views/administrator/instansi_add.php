@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-university"></i> Tambah Instansi
+                        <h1 class="text-gray-800"><i class="fas fa-university"></i> Tambah Instansi
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <section class="content">
+    <section class="content text-gray-800">
         <div class="container-fluid">
             <div class="card">
 
@@ -28,7 +28,7 @@
                     <form method="post" action="<?php echo base_url('instansi/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group">
                             <label for="nama" class="font-weight-bold">Nama Instansi</label>
-                            <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" placeholder="" required>
+                            <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" placeholder="Masukkan nama instansi" required>
                         </div>
                         <div class="form-group">
                             <label for="alamat" class="font-weight-bold">Alamat Instansi</label>

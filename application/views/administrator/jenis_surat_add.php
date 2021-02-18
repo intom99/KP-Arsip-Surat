@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-file"></i> Tambah Jenis Surat
+                        <h1 class="text-gray-800"><i class="fas fa-file"></i> Tambah Jenis Surat
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <section class="content">
+    <section class="content text-gray-800">
         <div class="container-fluid">
             <div class="card">
 
@@ -27,7 +27,7 @@
 
                     <form method="post" action="<?php echo base_url('/Jenis_surat/input'); ?>" class="ml-4 mr-4 mt-3 mb-3">
                         <div class="form-group">
-                            <label for="nama">Jenis Surat</label>
+                            <label class="font-weight-bold">Jenis Surat</label>
                             <input type="text" class="form-control" id="jenis_surat" name="jenis_surat" placeholder="" required>
                         </div>
                         <hr>

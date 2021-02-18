@@ -154,7 +154,7 @@
             </div>
           </li> -->
 
-            <ul class="nav navbar-nav navbar-right mt-2">
+            <ul class="nav navbar-nav navbar-right mt-2 text-gray-800">
               <?php if ($this->session->userdata('username')) { ?>
                 <li>
                   <b> <i class="fas fa-user-circle"></i>
@@ -170,7 +170,7 @@
             <ul class="nav navbar-nav navbar-right mt-2">
               <?php if ($this->session->userdata('username')) { ?>
 
-                <li class="mr-3"><a class="text-muted font-weight-bold" href="<?php echo base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li class="mr-3"><a class="text-muted font-weight-bold text-gray-800" href="<?php echo base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
               <?php } else { ?>
                 <li><?php echo anchor('auth/login', 'Login'); ?></li>
               <?php } ?>

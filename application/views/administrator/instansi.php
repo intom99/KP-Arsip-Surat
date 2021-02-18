@@ -5,7 +5,7 @@
 			<nav aria-label="breadcrumb">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1><i class="fas fa-university"></i> Instansi</h1>
+						<h1 class="text-gray-800"><i class="fas fa-university"></i> Instansi</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
@@ -32,7 +32,7 @@
 
 					<hr>
 
-					<table class="table table-bordered table-striped" id="dataTable">
+					<table class="table table-bordered table-striped text-gray-800" id="dataTable">
 						<thead>
 							<tr class="text-center">
 								<th>NO</th>

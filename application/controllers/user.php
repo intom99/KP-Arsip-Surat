@@ -187,30 +187,8 @@ class User extends CI_Controller
 	// Hapus
 	public function delete($id)
 	{
-		// if ($this->session->userdata['level'] == 'admin') {
-		// 	$where = array(
-		// 		'id' => $id
-		// 	);
-		// 	$this->user_model->delete_data($where, 'tb_user');
 
-		// 	$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-		// 	<b><i class="fas fa-check"></i> Sukses! </b>Data user berhasil dihapus
-		// 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		// 					<span aria-hidden="true">&times;</span></button></div>');
-		// 	redirect('user');
-		// } else {
-		// 	$data['title'] = 'KSPPS BMT Sehati';
-		// 	$this->load->view('templates_ketua/header', $data);
-		// 	$this->load->view('templates_ketua/sidebar');
-		// 	$this->load->view('administrator/404_page');
-		// 	$this->load->view('templates_ketua/footer');
-		// }
-
-
-
-		// 
 		if ($this->session->userdata['level'] == 'admin') {
-
 
 			if ($id != $_SESSION['id']) {
 				$where = array(

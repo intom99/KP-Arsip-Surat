@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-envelope-open"></i> Detail Surat Keluar</h1>
+                        <h1 class="text-gray-800"><i class="fas fa-envelope-open"></i> Detail Surat Keluar</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
@@ -29,7 +29,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <a href="<?php echo base_url('Surat_keluar/') ?>" class="btn btn-secondary" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
+                    <a href="<?php echo base_url('Surat_keluar/') ?>" class="btn btn-secondary mr-2" title="Kembali"><i class="fas fa-chevron-left"></i> Kembali</a>
                     <a href="<?php echo base_url('Surat_keluar/edit/') . $suratKeluar->id_surat_keluar ?>" class="btn btn-primary" title="Edit"><i class="fas fa-edit"></i> Edit</a>
 
                     <hr>
@@ -46,7 +46,7 @@
                         <div class="tab-pane fade show active" id="dataSurat" role="tabpanel" aria-labelledby="dataSurat-tab">
 
                             <!-- table -->
-                            <table class="table text-left mt-5">
+                            <table class="table text-left mt-5 text-gray-800">
 
 
                                 <tr>
@@ -90,7 +90,7 @@
 
                             </table>
 
-                            <table class="table text-left mt-5">
+                            <table class="table text-left mt-5 text-gray-800">
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Diinput</td>
                                     <td width="30px">:</td>

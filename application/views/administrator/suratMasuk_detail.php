@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-envelope"></i> Detail Surat Masuk</h1>
+                        <h1 class="text-gray-800"><i class="fas fa-envelope"></i> Detail Surat Masuk</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right bg-light">
@@ -44,7 +44,7 @@
                         <div class="tab-pane fade show active" id="dataSurat" role="tabpanel" aria-labelledby="dataSurat-tab">
 
                             <!-- table -->
-                            <table class="table text-left mt-5">
+                            <table class="table text-left mt-5 text-gray-800">
 
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Nomor Surat</td>
@@ -86,7 +86,7 @@
                                 </tr>
 
                             </table>
-                            <table class="table text-left mt-5">
+                            <table class="table text-left mt-5 text-gray-800">
                                 <tr>
                                     <td width="200px" class="font-weight-bold">Tanggal Diinput</td>
                                     <td width="30px">:</td>

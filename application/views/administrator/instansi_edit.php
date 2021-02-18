@@ -4,7 +4,7 @@
 			<nav aria-label="breadcrumb">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1><i class="fas fa-university"></i> Edit Intansi
+						<h1 class="text-gray-800"><i class="fas fa-university"></i> Edit Intansi
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right bg-light">
@@ -18,7 +18,7 @@
 		</div>
 	</section>
 
-	<section class="content">
+	<section class="content text-gray-800">
 		<div class="container-fluid">
 			<div class="card">
 
